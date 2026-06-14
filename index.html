@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
   <title>Test elektrotechnické způsobilosti NV194/2022</title>
   <style>
     :root {
@@ -90,6 +91,11 @@
       font-family: inherit;
     }
     .search-input:focus { outline: none; border-color: #6366f1; background: rgba(255,255,255,0.08); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
     .prehled-item { margin-bottom: 1rem; }
     .question-img {
       display: block; max-width: 100%; height: auto;
@@ -195,7 +201,7 @@
     
   </div>
   <div id="app">Načítám…</div>
-  <button type="button" class="secret-end" id="btnSecretEnd" aria-label="" title=""></button>
+  <button type="button" class="secret-end" id="btnSecretEnd" aria-hidden="true" tabindex="-1"></button>
   <footer class="app-footer">
     <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
     <div>
@@ -244,6 +250,12 @@
   </dialog>
   <script>
     const POCET_OTAZEK = 40;
+    // ID otázek, ke kterým existuje obrázek assets/ID<n>.jpg
+    const IMAGE_IDS = new Set([
+      166, 180, 241, 248, 251, 252, 260, 261, 267, 268, 269, 270, 292,
+      352, 353, 354, 355, 407, 408, 416, 417, 418, 453,
+      492, 493, 494, 495, 498, 499
+    ]);
     const FS_DEFAULTS = { otazka: 1.05, moznost: 1.00 };
     const FS_STEP = 0.1;
     const FS_MIN = 0.7;
@@ -262,6 +274,7 @@
     let testHistory = [];
     const STATS_KEY = 'questionStats';
     const HISTORY_KEY = 'testHistory';
+    const PROGRESS_KEY = 'testProgress';
     const MAX_HISTORY = 50;
 
     function nactiStatistiky() {
@@ -304,6 +317,39 @@
       });
       if (testHistory.length > MAX_HISTORY) testHistory.length = MAX_HISTORY;
       ulozStatistiky();
+    }
+
+    function ulozProgress() {
+      try {
+        sessionStorage.setItem(PROGRESS_KEY, JSON.stringify({
+          blokIds: blok.map(o => o.id),
+          aktualni,
+          vysledky,
+          souhrnUlozen
+        }));
+      } catch (e) {}
+    }
+
+    function vycistiProgress() {
+      try { sessionStorage.removeItem(PROGRESS_KEY); } catch (e) {}
+    }
+
+    function obnovProgress() {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(PROGRESS_KEY) || 'null');
+        if (!saved || !Array.isArray(saved.blokIds) || saved.blokIds.length === 0) return false;
+        const otazkyById = {};
+        for (const o of vsechnyOtazky) otazkyById[String(o.id)] = o;
+        const obnovenyBlok = saved.blokIds.map(id => otazkyById[String(id)]).filter(Boolean);
+        if (obnovenyBlok.length !== saved.blokIds.length) return false;
+        blok = obnovenyBlok;
+        aktualni = typeof saved.aktualni === 'number' ? saved.aktualni : 0;
+        vysledky = Array.isArray(saved.vysledky) ? saved.vysledky : [];
+        souhrnUlozen = !!saved.souhrnUlozen;
+        return true;
+      } catch (e) {
+        return false;
+      }
     }
 
     nactiStatistiky();
@@ -442,21 +488,32 @@
             vsechnyOtazky.push({ ...item, kapitola: item.kapitola || '' });
           }
         }
+        obnovProgress();
         renderAktualniPohled();
       } catch (e) {
         document.getElementById('app').innerHTML =
-          '<div class="err">Chyba při načítání dat: ' + e.message +
+          '<div class="err">Chyba při načítání dat: ' + escape(e.message) +
           '<br><br>Spusť aplikaci přes lokální server (např. <code>python -m http.server</code> nebo VSCode Live Server).</div>';
       }
     }
 
+    function zamichat(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
     function startNovyBlok() {
-      const shuffled = [...vsechnyOtazky].sort(() => Math.random() - 0.5);
+      const shuffled = zamichat(vsechnyOtazky);
       const pocet = Math.min(POCET_OTAZEK, vsechnyOtazky.length);
       blok = shuffled.slice(0, pocet);
       aktualni = 0;
       vysledky = [];
       souhrnUlozen = false;
+      ulozProgress();
       renderOtazka();
     }
 
@@ -466,9 +523,8 @@
 
     function obrazekHtml(id) {
       const n = Number(id);
-      if (!Number.isFinite(n)) return '';
-      return `<img class="question-img" src="assets/ID${n}.JPG" alt="Obrázek k otázce ${n}" `
-           + `onerror="if(this.dataset.f){this.remove();}else{this.dataset.f=1;this.src='assets/ID${n}.jpg';}">`;
+      if (!IMAGE_IDS.has(n)) return '';
+      return `<img class="question-img" src="assets/ID${n}.jpg" alt="Obrázek k otázce ${n}" loading="lazy">`;
     }
 
     function renderOtazka() {
@@ -478,9 +534,11 @@
       }
       const o = blok[aktualni];
       vyhodnoceno = false;
+      const okZatim = vysledky.filter(v => v.ok).length;
+      const skore = vysledky.length > 0 ? ` · Skóre ${okZatim}/${vysledky.length}` : '';
       document.getElementById('app').innerHTML = `
         <div class="card">
-          <div class="meta">Otázka ${aktualni + 1} / ${blok.length} · ID ${o.id}</div>
+          <div class="meta">Otázka ${aktualni + 1} / ${blok.length} · ID ${o.id}${skore}</div>
           ${o.kapitola ? `<div class="meta">${escape(o.kapitola)}</div>` : ''}
           <div class="otazka">${escape(o.otazka)}</div>
           ${obrazekHtml(o.id)}
@@ -521,9 +579,16 @@
         const input = label.querySelector('input');
         input.disabled = true;
         label.classList.add('disabled');
-        if (correctSet.has(k) && selectedSet.has(k)) label.classList.add('correct');
-        else if (!correctSet.has(k) && selectedSet.has(k)) label.classList.add('wrong');
-        else if (correctSet.has(k) && !selectedSet.has(k)) label.classList.add('missed');
+        let icon = '';
+        if (correctSet.has(k) && selectedSet.has(k)) { label.classList.add('correct'); icon = '✓'; }
+        else if (!correctSet.has(k) && selectedSet.has(k)) { label.classList.add('wrong'); icon = '✗'; }
+        else if (correctSet.has(k) && !selectedSet.has(k)) { label.classList.add('missed'); icon = '✓'; }
+        if (icon) {
+          const span = document.createElement('span');
+          span.setAttribute('aria-hidden', 'true');
+          span.textContent = ' ' + icon;
+          label.appendChild(span);
+        }
       });
 
       const ok = selected === correct && correct.length > 0;
@@ -537,6 +602,7 @@
         ok: ok
       });
       zaznamenejVysledekOtazky(o.id, ok);
+      ulozProgress();
 
       vyhodnoceno = true;
       const posledni = aktualni + 1 === blok.length;
@@ -545,6 +611,7 @@
 
     function renderSouhrn() {
       zaznamenejTestDoHistorie();
+      vycistiProgress();
       const okCount = vysledky.filter(v => v.ok).length;
       const procent = Math.round((okCount / vysledky.length) * 100);
       const polozky = vysledky.map((v, i) => {
@@ -563,12 +630,13 @@
         const selectedSet = new Set((v.zvolene || '').split(''));
         const moznosti = Object.entries(v.moznosti).map(([k, txt]) => {
           let cls = '';
-          if (correctSet.has(k) && selectedSet.has(k)) cls = 'correct';
-          else if (!correctSet.has(k) && selectedSet.has(k)) cls = 'wrong';
-          else if (correctSet.has(k) && !selectedSet.has(k)) cls = 'missed';
+          let icon = '';
+          if (correctSet.has(k) && selectedSet.has(k)) { cls = 'correct'; icon = '✓ '; }
+          else if (!correctSet.has(k) && selectedSet.has(k)) { cls = 'wrong'; icon = '✗ '; }
+          else if (correctSet.has(k) && !selectedSet.has(k)) { cls = 'missed'; icon = '✓ '; }
           return `
             <div class="moznost disabled ${cls}" data-opt="${k}">
-              <b>${k})</b> ${escape(txt)}
+              <b>${k})</b> <span aria-hidden="true">${icon}</span>${escape(txt)}
             </div>
           `;
         }).join('');
@@ -598,8 +666,13 @@
     function renderPrehled() {
       const sorted = [...vsechnyOtazky].sort((a, b) => Number(a.id) - Number(b.id));
       const filter = prehledFilter.trim();
+      const filterLower = filter.toLowerCase();
       const filtered = filter
-        ? sorted.filter(o => String(o.id).startsWith(filter))
+        ? sorted.filter(o =>
+            String(o.id).startsWith(filter) ||
+            (o.kapitola && o.kapitola.toLowerCase().includes(filterLower)) ||
+            (o.otazka && o.otazka.toLowerCase().includes(filterLower))
+          )
         : sorted;
 
       const polozky = filtered.map(o => {
@@ -607,7 +680,7 @@
         const correctSet = new Set(correct.split(''));
         const moznosti = Object.entries(o.moznosti).map(([k, v]) => `
           <div class="moznost disabled ${correctSet.has(k) ? 'correct' : ''}" data-opt="${k}">
-            <b>${k})</b> ${escape(v)}
+            <b>${k})</b> <span aria-hidden="true">${correctSet.has(k) ? '✓ ' : ''}</span>${escape(v)}
           </div>
         `).join('');
         return `
@@ -629,8 +702,9 @@
 
       document.getElementById('app').innerHTML = `
         <div class="card" style="margin-bottom: 1rem;">
-          <input type="text" class="search-input" id="searchInput" inputmode="numeric"
-            placeholder="Hledat podle čísla otázky (např. 42)…" value="${escape(filter)}">
+          <label for="searchInput" class="sr-only">Hledat otázky podle čísla, kapitoly nebo textu</label>
+          <input type="text" class="search-input" id="searchInput"
+            placeholder="Hledat podle čísla, kapitoly nebo textu otázky…" value="${escape(filter)}">
           <div class="meta" style="margin-top: 0.6rem;">
             Zobrazeno ${filtered.length} z ${sorted.length} otázek.
           </div>
@@ -746,10 +820,11 @@
         alert('Otázky z historie chyb se nepodařilo najít v aktuálních datech.');
         return;
       }
-      blok = vybrane.sort(() => Math.random() - 0.5);
+      blok = zamichat(vybrane);
       aktualni = 0;
       vysledky = [];
       souhrnUlozen = false;
+      ulozProgress();
       prepnoutPohled('test');
     }
 
