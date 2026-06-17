@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Účinky proudu na člověka | Test NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <main class="card content">
+    <h1>5. Účinky elektrického proudu na lidské tělo</h1>
+    <p class="lead">Nebezpečnost úrazu elektrickým proudem závisí na velikosti proudu, době průchodu, cestě proudu tělem a typu proudu (AC/DC). Lidské tělo má elektrický odpor, který se výrazně liší podle stavu kůže (suchá/vlhká/poškozená), kontaktní plochy a cesty proudu – právě proto se v koupelnách a vlhkých prostorách (téma 7 – SELV/PELV/FELV) uplatňují přísnější limity než v suchých prostorách.</p>
+
+    <h2>Orientační prahy pro střídavý proud 50 Hz</h2>
+    <p>Následující tabulka uvádí zjednodušené orientační prahy pro cestu proudu ruka–ruka nebo ruka–nohy, při průchodu proudu hrudníkem:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Proud</th><th>Účinek</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">do 0,5 mA</td><td>prakticky bez vjemu (prah vnímání)</td></tr>
+          <tr><td class="code">0,5–10 mA</td><td>brnění, svalové stahy, ještě obvykle možnost se „pustit"</td></tr>
+          <tr><td class="code">10–25 mA</td><td>silné svalové křeče, ztráta schopnosti pustit vodič (tzv. „let-go threshold")</td></tr>
+          <tr><td class="code">25–50 mA</td><td>potíže s dýcháním při delším průchodu hrudníkem, možné poruchy srdečního rytmu</td></tr>
+          <tr><td class="code">nad 50 mA (déle než ~0,5 s)</td><td>vysoké riziko fibrilace srdečních komor – ohrožení života</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Faktory ovlivňující závažnost úrazu</h2>
+    <ul>
+      <li><strong>Velikost proudu</strong> – rozhodující veličina; závisí na napětí a celkovém odporu obvodu (odpor těla, kůže, přechodové odpory).</li>
+      <li><strong>Doba průchodu</strong> – krátké působení (řádově desítky ms) je výrazně méně rizikové než trvalý průchod; na tom je založen princip rychlého odpojení pomocí RCD.</li>
+      <li><strong>Cesta proudu tělem</strong> – nejnebezpečnější je cesta procházející hrudníkem/srdcem (ruka–ruka, ruka–noha), protože hrozí ovlivnění srdečního rytmu.</li>
+      <li><strong>Typ proudu (AC/DC)</strong> – při stejné velikosti je střídavý proud 50/60 Hz obecně považován za nebezpečnější z hlediska vzniku fibrilace komor než stejnosměrný proud, naopak DC má jiné rizikové prahy pro popáleniny a elektrolytické účinky.</li>
+      <li><strong>Stav kůže a kontaktní plocha</strong> – vlhká nebo poškozená kůže výrazně snižuje odpor těla a zvyšuje proud při stejném napětí (souvislost s nižšími mezními napětími SELV/PELV ve vlhkých prostorech).</li>
+    </ul>
+
+    <div class="note">
+      Přesné křivky průběhu proudu a času (zóny AC-1 až AC-4) definuje norma <strong>ČSN IEC/TS 60479-1</strong> (Účinky proudu na člověka a domácí zvířata). Hodnoty výše jsou zjednodušené orientační prahy pro výukové účely a slouží jako pomůcka pro pochopení principu, na kterém jsou založena ochranná opatření (téma 6) – zejména rychlé samočinné odpojení od zdroje a doplňková ochrana proudovým chráničem s I<sub>Δn</sub> ≤ 30 mA.
+    </div>
+
+    <div class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://www.elektroprumysl.cz/legislativa/ucinky-elektrickeho-proudu-protekajiciho-ponorenym-lidskym-telem" target="_blank" rel="noopener">Účinky elektrického proudu protékajícího lidským tělem – ElektroPrůmysl.cz</a></li>
+        <li><a href="https://www.in-el.cz/referat/103162/ucinky-proudu-na-cloveka-informace-k-nove-csn-iects-60479-1" target="_blank" rel="noopener">Účinky proudů na člověka – informace k ČSN IEC/TS 60479-1 – in-el.cz</a></li>
+        <li><a href="https://cs.wikipedia.org/wiki/%C3%9Araz_elektrick%C3%BDm_proudem" target="_blank" rel="noopener">Úraz elektrickým proudem – Wikipedie</a></li>
+        <li>ČSN IEC/TS 60479-1 (placená norma – uvedené hodnoty jsou orientační)</li>
+      </ul>
+    </div>
+  </main>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div><a href="/reference/index.html">← Referenční tabulky</a></div>
+  </footer>
+</body>
+</html>

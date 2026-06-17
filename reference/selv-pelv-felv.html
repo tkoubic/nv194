@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>SELV / PELV / FELV | Test NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <main class="card content">
+    <h1>7. Bezpečná malá napětí – SELV / PELV / FELV</h1>
+    <p class="lead">Vedle samočinného odpojení od zdroje (téma 6) a tříd ochrany spotřebičů (téma 4) existuje ještě jedna kategorie ochrany před úrazem elektrickým proudem – <strong>ochrana pomocí malého napětí (ELV)</strong>. Podle způsobu napájení a vazby na zem/PE se ELV obvody dělí na <strong>SELV, PELV a FELV</strong>, definované zejména v ČSN 33 2000-4-41, čl. 414.</p>
+
+    <h2>7.1 Úvod – proč existují soustavy malého napětí a jak zapadají do systému ochrany</h2>
+    <p>Vedle ochranných opatření založených na samočinném odpojení od zdroje (jistič/RCD + PE, téma 6) a na třídách ochrany spotřebičů (téma 4) existuje ještě jedna, principiálně odlišná kategorie ochrany před úrazem elektrickým proudem: <strong>ochrana pomocí malého napětí</strong>. Jejím principem není rychlé odpojení poruchového obvodu ani izolace, ale <strong>snížení napětí na takovou úroveň, při které ani trvalý dotyk živé části nezpůsobí nebezpečný průchod proudu tělem</strong> – tedy odstranění nebezpečí už v jeho zdroji.</p>
+    <p>Toto pojetí ochrany se v normách označuje souhrnně jako <strong>ELV – Extra Low Voltage</strong> (velmi nízké napětí). Hranice ELV je v normách ČSN 33 2000 definována jako napětí <strong>nepřesahující 50 V AC (efektivní hodnota) nebo 120 V DC</strong> mezi vodiči navzájem a vůči zemi/PE. Pro samotnou existenci nízkého napětí v obvodu ale <strong>nestačí pouze nízká hodnota napětí</strong> – rozhodující je i to, <strong>jak je obvod napájen a zda je galvanicky oddělen od sítě a od ochranného/zemního systému</strong>. Podle tohoto kritéria se ELV obvody dělí do tří kategorií: <strong>SELV, PELV a FELV</strong>, které jsou definovány zejména v ČSN 33 2000-4-41 (Ochrana před úrazem elektrickým proudem) v článku 414.</p>
+
+    <h2>7.2 SELV (Safety Extra-Low Voltage) – bezpečné malé napětí</h2>
+    <p><strong>SELV</strong> je soustava malého napětí, která splňuje <strong>všechny</strong> následující podmínky:</p>
+    <ol>
+      <li><strong>Napětí nepřesahuje meze ELV</strong> (50 V AC / 120 V DC), v praxi se u SELV obvodů běžně používá 6, 12, 24, 25, 42 nebo 48 V.</li>
+      <li>Obvod je napájen z <strong>bezpečného zdroje</strong> – nejčastěji z <strong>bezpečnostního oddělovacího transformátoru</strong> (anglicky <em>safety isolating transformer</em>), který má mezi primárním (síťovým) a sekundárním (SELV) vinutím <strong>dvojitou nebo zesílenou izolaci</strong> zaručující, že ani při poruše na primární straně se na sekundární straně neobjeví nebezpečné napětí. Alternativně může jít o baterii, akumulátor, nebo elektronický zdroj se zaručeným bezpečným oddělením rovnocenným bezpečnostnímu transformátoru, případně o motorgenerátor s odpovídající izolací mezi vinutími.</li>
+      <li><strong>Obvod SELV nesmí být v žádném bodě spojen se zemí, s ochranným vodičem (PE) ani s vodiči jiného obvodu</strong> – tedy ani vodiče samotného SELV obvodu, ani jeho neživé/přístupné kovové části nesmí být uzemněny nebo spojeny s PE jiné soustavy. Toto je <strong>zásadní rozdíl oproti PELV</strong> (viz dále).</li>
+      <li><strong>Vodiče SELV obvodu musí být fyzicky odděleny od vodičů jiných obvodů</strong> (jiné napěťové hladiny) – buď samostatným kabelem, nebo dostatečnou izolací/přepážkou, aby porucha v jiném obvodu nemohla „přeskočit" do SELV obvodu a zvýšit jeho napětí nad bezpečnou mez.</li>
+    </ol>
+    <p>Díky těmto vlastnostem je u SELV obvodu <strong>vyloučen jak úraz dotykem živé části za normálního provozu (díky nízkému napětí), tak nebezpečné dotykové napětí na neživých částech při poruše</strong> (díky galvanickému oddělení – porucha v primárním obvodu se nemůže „propsat" do SELV obvodu a SELV obvod sám není spojen se zemí, takže ani porucha uvnitř SELV obvodu nevytvoří nebezpečnou poruchovou smyčku).</p>
+    <p><strong>Typické použití SELV:</strong> zahradní osvětlení a dekorativní svítidla (12/24 V), nízkonapěťové ovládací a signalizační obvody, dětská hřiště a atrakce, modelové železnice, některé typy zvonkových obvodů, nízkonapěťové LED systémy napájené z certifikovaných SELV zdrojů, hračky.</p>
+
+    <h2>7.3 PELV (Protective Extra-Low Voltage) – ochranné malé napětí</h2>
+    <p><strong>PELV</strong> splňuje stejné základní podmínky jako SELV (napětí v mezích ELV, napájení z bezpečnostního zdroje se zaručeným oddělením), s <strong>jedním podstatným rozdílem</strong>: obvod PELV <strong>smí (a často musí) být spojen s ochranným vodičem (PE) a/nebo se zemí</strong>.</p>
+    <p>Toto spojení se zemí/PE je důvodem, proč se PELV používá v situacích, kde:</p>
+    <ul>
+      <li>je z funkčních důvodů žádoucí nebo nutné mít obvod uzemněný (např. řídicí a ovládací obvody strojů, kde se zemnění používá pro odrušení nebo funkční důvody),</li>
+      <li>se obvod nachází v prostředí, kde i malé napětí může představovat zvýšené riziko (např. <strong>koupelny a prostory se sprchovým koutem</strong> – zde se PELV/SELV obvody řeší s ohledem na zóny ohraničení dle ČSN 33 2000-4-41 čl. 414.4.1, kde se navíc uplatňují nižší mezní napětí, viz kapitola 7.7),</li>
+      <li>jde o zvonkové obvody, kde jedna svorka transformátoru může být spojena s PE/kostrou zařízení.</li>
+    </ul>
+    <p>Z hlediska bezpečnosti je PELV mírně „slabší" než SELV v tom smyslu, že připojení k PE/zemi v zásadě může za určitých okolností (např. souběžná porucha v jiném obvodu spojeném se stejným PE) přivést na PELV obvod jiné než nulové napětí vůči zemi – proto normy PELV povolují jen tam, kde toto riziko je akceptovatelné nebo kde je naopak uzemnění z jiných důvodů žádoucí.</p>
+
+    <h2>7.4 FELV (Functional Extra-Low Voltage) – funkční malé napětí</h2>
+    <p><strong>FELV</strong> je nejméně „bezpečná" ze tří kategorií – jde o obvod, který <strong>má napětí v mezích ELV (≤ 50 V AC/120 V DC), ale nesplňuje všechny podmínky pro SELV nebo PELV</strong>, typicky proto, že:</p>
+    <ul>
+      <li>zdroj (transformátor) <strong>nemá zaručené bezpečné oddělení</strong> odpovídající požadavkům na bezpečnostní oddělovací transformátor (např. jde o běžný „funkční" transformátor pro napájení elektroniky, řídicích obvodů, motorových spouštěčů apod., certifikovaný jen pro základní izolaci mezi vinutími),</li>
+      <li>a/nebo obvod <strong>je galvanicky spojen</strong> (přímo nebo přes společné prvky) s obvody vyššího napětí.</li>
+    </ul>
+    <p>Nízké napětí v FELV obvodu má tedy čistě <strong>funkční důvod</strong> (napájení elektroniky, cívek stykačů, signalizace) a <strong>nelze se na něj spoléhat jako na bezpečnostní opatření</strong>. Proto normy u FELV obvodů požadují, aby byla zajištěna <strong>stejná úroveň ochrany jako u běžných obvodů 230/400 V</strong>, konkrétně:</p>
+    <ul>
+      <li>Přístupné neživé části zařízení napájeného FELV musí být spojeny s ochranným vodičem (PE) primárního obvodu (pokud se v primárním obvodu používá ochrana samočinným odpojením),</li>
+      <li>Zástrčky a zásuvky FELV obvodu musí být <strong>odlišné</strong> od zástrček a zásuvek používaných pro SELV/PELV, aby nemohlo dojít k záměně a k připojení FELV zařízení do obvodu, kde se předpokládá bezpečné malé napětí,</li>
+      <li>Vodiče FELV obvodu musí mít izolaci dimenzovanou na nejvyšší napětí, které se může v daném místě vyskytnout (tj. na napětí primárního obvodu, ne jen na napětí FELV), pro případ poruchy izolace mezi vinutími transformátoru.</li>
+    </ul>
+    <p>V praxi je FELV typický u <strong>běžných (necertifikovaných jako bezpečnostní) transformátorů a napájecích zdrojů ovládacích obvodů</strong> v rozváděčích strojů a technologických zařízení – nízké napětí 24 V DC pro PLC, snímače a stykače je zde primárně z funkčních důvodů (kompatibilita s elektronikou), nikoliv jako ochranné opatření, a samo o sobě nenahrazuje potřebu PE a samočinného odpojení v celém zařízení.</p>
+
+    <h2>7.5 Požadavky na zdroje SELV/PELV</h2>
+    <p>Aby obvod mohl být klasifikován jako SELV nebo PELV, musí být napájen jedním z následujících zdrojů:</p>
+    <ol>
+      <li><strong>Bezpečnostní oddělovací transformátor</strong> dle ČSN EN 61558-2-6 (Bezpečnost výkonových transformátorů, napájecích zdrojů, tlumivek a podobných výrobků – Část 2-6: Zvláštní požadavky a zkoušky pro bezpečnostní oddělovací transformátory a napájecí zdroje obsahující bezpečnostní oddělovací transformátory) – tento typ transformátoru má mezi primárním a sekundárním vinutím <strong>dvojitou nebo zesílenou izolaci</strong> a je konstruován tak, aby ani při poruše vinutí nemohlo dojít k přenosu nebezpečného napětí na sekundární stranu.</li>
+      <li><strong>Zdroj s rovnocennou úrovní bezpečnosti jako bezpečnostní transformátor</strong> – např. elektronický spínaný zdroj se zaručeným (certifikovaným) oddělením vstup/výstup odpovídajícím dvojité/zesílené izolaci.</li>
+      <li><strong>Zdroj elektrochemického původu</strong> – baterie, akumulátor (zde je galvanické oddělení od sítě dáno samotnou povahou zdroje).</li>
+      <li><strong>Zařízení vyrábějící elektřinu nezávisle na síti</strong> – motorgenerátor s vinutím s odpovídající izolací, malé fotovoltaické moduly napájející izolovaný okruh apod.</li>
+      <li>Některá <strong>elektronická zařízení</strong>, u kterých i při poruše vnitřních komponent nemůže výstupní napětí překročit hodnoty ELV (tzv. inherentně bezpečná konstrukce, ověřená zkouškami dle příslušné výrobkové normy).</li>
+    </ol>
+    <p>Naproti tomu <strong>běžný (izolační) transformátor bez certifikace jako bezpečnostní oddělovací transformátor</strong> (např. transformátor zvonku, levný adaptér bez příslušného značení/certifikace) <strong>nesplňuje podmínky pro SELV/PELV</strong> a obvod napájený z takového zdroje je nutné posuzovat jako <strong>FELV</strong> s odpovídajícími doplňkovými opatřeními.</p>
+
+    <h2>7.6 Aplikace v praxi – kde se SELV/PELV/FELV používají</h2>
+    <ul>
+      <li><strong>Koupelny a prostory se sprchou</strong> (ČSN 33 2000-4-41, čl. 414.4.1, ve spojení s ČSN 33 2000-7-701) – pro svítidla a spotřebiče v zónách 0 a 1 se preferuje napájení SELV, přičemž <strong>zdroj (transformátor) musí být umístěn mimo zóny 0, 1 a 2</strong> (tedy mimo vanu/sprchu a jejich bezprostřední okolí). Obvody napájející zařízení v zóně 0 musí být SELV s mezním napětím sníženým na <strong>12 V AC / 30 V DC</strong>; v zónách 1 a 2 platí mírnější, ale stále snížené meze oproti běžným 50 V AC.</li>
+      <li><strong>Zahradní a venkovní osvětlení, jezírka, bazény</strong> – nízkonapěťové (12/24 V) SELV systémy snižují riziko úrazu ve vlhkém venkovním prostředí; u bazénů navíc platí specifická zónová pravidla obdobná koupelnám (ČSN 33 2000-7-702).</li>
+      <li><strong>Dětská hřiště, atrakce, hračky</strong> – spotřebiče třídy ochrany III (téma 4) jsou konstrukčně určeny právě pro napájení SELV.</li>
+      <li><strong>Zvonkové a signalizační obvody, domovní telefony (vrátníky)</strong> – často PELV (transformátor se zemněnou sekundární svorkou pro funkční/odrušovací důvody).</li>
+      <li><strong>Řídicí a ovládací obvody strojů a technologických zařízení</strong> (24 V DC pro PLC, snímače, stykače) – typicky <strong>FELV</strong>, pokud zdroj není certifikovaný jako bezpečnostní oddělovací transformátor; vyžadují plnou ochranu jako obvody vyšších napětí (PE, samočinné odpojení).</li>
+      <li><strong>Svítidla v podhledech, halogenová osvětlení 12 V</strong> – SELV/PELV podle toho, zda je transformátor uzemněn.</li>
+    </ul>
+
+    <h2>7.7 Mezní napětí v různých prostředích – obecná pravidla vs. zvláštní prostory</h2>
+    <p>Základní mez ELV (50 V AC / 120 V DC) platí pro <strong>běžné (suché) prostory</strong>. Ve <strong>zvláštních prostorech se zvýšeným rizikem úrazu</strong> – typicky vlhké nebo mokré prostory, prostory s vodivou podlahou, nebo prostory, kde osoba může mít velkou plochu těla v kontaktu se zemí/vodou (koupelny, bazény, technologické nádrže) – normy stanovují <strong>nižší mezní napětí</strong>:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Prostředí</th><th>Mezní napětí SELV/PELV</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Běžné suché prostory</td><td>50 V AC / 120 V DC</td></tr>
+          <tr><td>Vlhké/mokré prostory, venkovní prostory</td><td>typicky 25 V AC / 60 V DC</td></tr>
+          <tr><td>Zóna 0 v koupelnách/bazénech (přímý kontakt s vodou)</td><td>12 V AC / 30 V DC</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Tyto snížené hodnoty reflektují skutečnost, že <strong>odpor lidského těla a okolního prostředí (mokrá kůže, voda) je výrazně nižší</strong>, takže i napětí, které by v suchém prostředí bylo bezpečné, může ve vlhkém prostředí způsobit nebezpečný proud tělem (souvislost s tématem 5 – účinky proudu na člověka, kde i jednotky mA mohou být rizikové při dlouhodobém působení a sníženém odporu těla).</p>
+
+    <h2>7.8 Vztah SELV/PELV/FELV k třídám ochrany spotřebičů</h2>
+    <p>Jak je uvedeno v tématu 4, spotřebiče <strong>třídy III</strong> jsou konstrukčně určeny k napájení <strong>výhradně ze zdroje SELV</strong> (případně PELV) – jejich bezpečnost je založena na předpokladu, že napájecí napětí nikdy nepřekročí mez ELV a že zdroj je galvanicky oddělen. Pokud by byl spotřebič třídy III omylem napájen z <strong>FELV zdroje</strong> (např. nekvalitní adaptér bez zaručeného oddělení), <strong>ztrácí se základní předpoklad jeho bezpečnosti</strong> – proto normy vyžadují, aby konektory/zásuvky FELV obvodů byly odlišné od konektorů SELV/PELV a nemohlo tak dojít k záměně.</p>
+
+    <h2>7.9 Shrnutí – srovnávací tabulka</h2>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Hledisko</th><th>SELV</th><th>PELV</th><th>FELV</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Napětí</td><td>≤ 50 V AC / 120 V DC</td><td>≤ 50 V AC / 120 V DC</td><td>≤ 50 V AC / 120 V DC</td></tr>
+          <tr><td>Zdroj</td><td>Bezpečnostní oddělovací transformátor / rovnocenný zdroj</td><td>Bezpečnostní oddělovací transformátor / rovnocenný zdroj</td><td>Běžný transformátor bez zaručeného oddělení</td></tr>
+          <tr><td>Spojení s PE/zemí</td><td><strong>Žádné</strong> – obvod ani neživé části nesmí být spojeny se zemí/PE</td><td><strong>Povoleno</strong> – obvod může být spojen s PE/zemí</td><td>Spojení s primárním obvodem možné/běžné</td></tr>
+          <tr><td>Doplňková ochrana nutná?</td><td>Ne – samotné napětí je bezpečné</td><td>Ne – samotné napětí je bezpečné</td><td><strong>Ano</strong> – stejná ochrana jako u 230/400 V (PE, RCD, izolace dimenzovaná na vyšší napětí)</td></tr>
+          <tr><td>Typické použití</td><td>Zahradní osvětlení, hračky, dětská hřiště</td><td>Koupelny, zvonky, řídicí obvody se zemněnou sekundou</td><td>Ovládací obvody PLC, stykače v rozváděčích strojů</td></tr>
+          <tr><td>Související třída ochrany spotřebiče</td><td>III</td><td>III (s vazbou na PE)</td><td>Žádná zvláštní – plná ochrana jako u síťového napětí</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://www.elektroprumysl.cz/legislativa/ochranne-opatreni-zajistovane-malym-napetim-selv-a-pelv" target="_blank" rel="noopener">Ochranné opatření zajišťované malým napětím SELV a PELV – ElektroPrůmysl.cz</a></li>
+        <li><a href="https://cs.wikipedia.org/wiki/Velmi_n%C3%ADzk%C3%A9_nap%C4%9Bt%C3%AD" target="_blank" rel="noopener">Velmi nízké napětí (ELV/SELV/PELV/FELV) – Wikipedie</a></li>
+        <li><a href="https://www.eshop-meanwell.cz/selv/" target="_blank" rel="noopener">Co je SELV a jak se liší od PELV a FELV – MEAN WELL</a></li>
+        <li><a href="https://www.bez.cz/" target="_blank" rel="noopener">Bezpečnostní oddělovací transformátory dle ČSN EN 61558-2-6 – přehled výrobců</a></li>
+        <li><a href="https://elektro.tzb-info.cz/" target="_blank" rel="noopener">Ochrana v koupelnách a prostorech se sprchou – zóny dle ČSN 33 2000-7-701 – TZB-info</a></li>
+        <li>ČSN 33 2000-4-41 ed. 3 (čl. 414 – Ochranné opatření: SELV a PELV; FELV), ČSN 33 2000-7-701 (koupelny), ČSN 33 2000-7-702 (bazény), ČSN EN 61558-2-6 (placené normy – uvedené informace jsou orientační)</li>
+      </ul>
+    </div>
+  </main>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div><a href="/reference/index.html">← Referenční tabulky</a></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Ochranná opatření před úrazem | Test NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <main class="card content">
+    <h1>6. Ochranná opatření před úrazem elektrickým proudem</h1>
+    <p class="lead">Norma <strong>ČSN 33 2000-4-41</strong> (Ochrana před úrazem elektrickým proudem) definuje tři na sebe navazující úrovně ochrany, které se v praxi vzájemně kombinují tak, aby selhání jedné úrovně bylo zachyceno úrovní další.</p>
+
+    <h2>Tři úrovně ochrany</h2>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Úroveň ochrany</th><th>Cíl</th><th>Příklady opatření</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="code">Základní ochrana</td>
+            <td>Ochrana před přímým dotykem živých částí za normálního provozu</td>
+            <td>základní izolace, kryty, přepážky, zábrany, ochrana polohou (umístění mimo dosah)</td>
+          </tr>
+          <tr>
+            <td class="code">Ochrana při poruše</td>
+            <td>Ochrana před nepřímým dotykem – dotyk neživé části, která se stala živou při poruše izolace</td>
+            <td>samočinné odpojení od zdroje (jistič/RCD + ochranný vodič PE), přídavná izolace, ochranné pospojování, ochranné oddělení (bezpečnostní transformátor)</td>
+          </tr>
+          <tr>
+            <td class="code">Doplňková ochrana</td>
+            <td>Dodatečná ochrana pro případ, že základní ochrana nebo ochrana při poruše selže</td>
+            <td>proudový chránič (RCD) s I<sub>Δn</sub> ≤ 30 mA, doplňkové pospojování</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Princip samočinného odpojení od zdroje</h2>
+    <p>Nejběžnější ochranné opatření v běžných instalacích – ochrana při poruše zajištěná <strong>samočinným odpojením od zdroje</strong> – spočívá v tom, že přístupné neživé části (kovové kryty spotřebičů, konstrukce) jsou spojeny s ochranným vodičem (PE) a celý systém je navržen tak, aby při poruše izolace vznikla nízkoimpedanční poruchová smyčka. Touto smyčkou poteče proud, který jistič nebo proudový chránič rozpozná a obvod ve stanoveném čase odpojí, dříve než dotykové napětí na neživé části způsobí nebezpečný úraz.</p>
+    <p>Aby toto opatření fungovalo, musí být splněny dvě podmínky současně: (1) impedance poruchové smyčky musí být dostatečně nízká, aby ochranný přístroj vybavil v požadovaném čase, a (2) ochranný vodič musí být v celé trase nepřerušený a správně dimenzovaný (vazba na téma 1 – průřezy vodičů a téma 3 – barevné značení PE).</p>
+
+    <h2>Vztah jednotlivých opatření</h2>
+    <ul>
+      <li><strong>Základní izolace</strong> sama o sobě stačí pouze do okamžiku poruchy – proto se nikdy nepoužívá jako jediné opatření v běžných instalacích bez dalšího zajištění (s výjimkou spotřebičů třídy II, kde dvojitá/zesílená izolace nahrazuje obě úrovně – viz téma 4).</li>
+      <li><strong>Ochranné pospojování</strong> (spojení všech kovových konstrukcí, potrubí a vodivých částí s PE) vyrovnává potenciály a snižuje dotykové napětí i v okamžiku poruchy, než stihne zafungovat odpojení.</li>
+      <li><strong>Ochranné oddělení</strong> (bezpečnostní oddělovací transformátor) odděluje obvod od sítě tak, že porucha v primárním obvodu se nemůže přenést do obvodu sekundárního – princip využívaný u SELV/PELV (téma 7).</li>
+    </ul>
+
+    <div class="note">
+      <strong>Důležité pravidlo:</strong> Proudový chránič (RCD) <strong>nelze použít jako jediné nebo základní ochranné opatření</strong> – je vždy <em>doplňkem</em> k ochraně při poruše (samočinnému odpojení pomocí jističe + PE), nikoliv jeho náhradou. RCD nechrání před zkratovými proudy mezi fázovými vodiči ani před přetížením – tuto funkci stále zajišťuje jistič (téma 2).
+    </div>
+
+    <div class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://cs.wikipedia.org/wiki/Ochrana_p%C5%99ed_%C3%BArazem_elektrick%C3%BDm_proudem" target="_blank" rel="noopener">Ochrana před úrazem elektrickým proudem – Wikipedie</a></li>
+        <li><a href="https://elektro.tzb-info.cz/normy-a-pravni-predpisy-elektrotechnika/4398-zasady-pro-navrhovani-ochran-pred-urazem-elektrickym-proudem-revize-csn-33-2000-4-41" target="_blank" rel="noopener">Zásady pro navrhování ochran před úrazem elektrickým proudem – TZB-info</a></li>
+        <li>ČSN 33 2000-4-41 ed. 3 (placená norma – uvedené informace jsou orientační)</li>
+      </ul>
+    </div>
+  </main>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div><a href="/reference/index.html">← Referenční tabulky</a></div>
+  </footer>
+</body>
+</html>

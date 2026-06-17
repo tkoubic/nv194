@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Třídy ochrany 0/I/II/III | Test NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <main class="card content">
+    <h1>4. Třídy ochrany elektrických zařízení (0, I, II, III)</h1>
+    <p class="lead">Třída ochrany udává, jakým konstrukčním způsobem výrobce zajistil ochranu osob před úrazem elektrickým proudem v případě poruchy základní izolace spotřebiče. Norma <strong>ČSN EN 61140</strong> rozlišuje čtyři třídy – <strong>0, I, II a III</strong> – a tato vlastnost výrobku se doplňuje (ale nezaměňuje) s ochrannými opatřeními instalace (téma 6).</p>
+
+    <h2>4.1 Úvod – co je třída ochrany a k čemu slouží</h2>
+    <p>Třída ochrany (anglicky <em>protection class</em> nebo <em>equipment class</em>) je klasifikace, kterou výrobce přiřazuje elektrickému spotřebiči nebo zařízení podle toho, <strong>jakým konstrukčním způsobem je zajištěna ochrana osob před úrazem elektrickým proudem v případě poruchy základní izolace</strong>. Jde tedy o vlastnost samotného <strong>výrobku</strong> (spotřebiče), na rozdíl od „ochranných opatření" v elektroinstalaci (téma 6), která se týkají <strong>rozvodu</strong> (samočinné odpojení od zdroje, pospojování, ochranné oddělení apod.).</p>
+    <p>Tyto dvě úrovně – ochrana zajištěná konstrukcí spotřebiče (třída ochrany) a ochrana zajištěná instalací (ochranná opatření dle ČSN 33 2000-4-41) – se vzájemně doplňují a společně tvoří tzv. <strong>koordinovaný systém ochrany před úrazem elektrickým proudem</strong>. Norma, která třídy ochrany definuje na mezinárodní úrovni, je <strong>IEC 61140</strong> (v ČR převzata jako <strong>ČSN EN 61140</strong>, Ochrana před úrazem elektrickým proudem – Společná hlediska pro instalaci a zařízení), dříve také německá norma <strong>VDE 0140-1</strong>, na kterou se v literatuře často odkazuje.</p>
+    <p>Rozlišují se čtyři třídy: <strong>0, I, II a III</strong>. Pro pochopení je užitečné chápat je jako odpověď na otázku: <em>„Co se stane, když selže základní (pracovní) izolace živých částí, a jak je člověk i přesto chráněn před nebezpečným dotykovým napětím?"</em></p>
+
+    <h2>4.2 Třída ochrany 0</h2>
+    <p>Spotřebič třídy 0 má <strong>pouze základní (pracovní) izolaci</strong> mezi živými částmi a přístupnými neživými (vodivými) částmi. <strong>Neobsahuje žádný ochranný vodič (PE)</strong> ani jiný doplňkový ochranný systém – pokud selže základní izolace, neexistuje žádná „druhá linie obrany" a přístupné kovové části se mohou stát živými (pod napětím), aniž by to spotřebič jakkoliv signalizoval nebo automaticky odpojil.</p>
+    <p>Z tohoto důvodu je výroba, dovoz a používání spotřebičů třídy 0 v řadě zemí, včetně <strong>České republiky</strong>, <strong>zakázáno</strong> (resp. takové spotřebiče nesplňují požadavky platných bezpečnostních norem pro spotřebiče určené k prodeji a používání). V testových otázkách NV 194/2022 se třída 0 typicky objevuje jako <strong>správná odpověď na otázku „která třída ochrany je v ČR nepřípustná/zakázaná"</strong>, nikoli jako popis reálně používaného spotřebiče. Historicky se s třídou 0 šlo setkat u velmi starých spotřebičů (např. staré kovové stolní lampy bez PE vidlice), které jsou dnes z hlediska bezpečnosti považovány za nevyhovující a měly by být vyřazeny z provozu.</p>
+
+    <h2>4.3 Třída ochrany I</h2>
+    <p>Spotřebič třídy I má <strong>základní (pracovní) izolaci živých částí</strong> jako primární ochranu, ale navíc jsou <strong>všechny přístupné vodivé (neživé) části spojeny s ochranným vodičem (PE)</strong> prostřednictvím ochranné svorky/kontaktu. Tím je vytvořena tzv. <strong>ochrana při poruše</strong> – pokud selže základní izolace a živá část se dotkne kovového krytu, vznikne přes PE vodič nízkoimpedanční poruchová smyčka, kterou poteče dostatečně velký proud, aby <strong>jistič nebo proudový chránič (RCD) v instalaci</strong> velmi rychle odpojil napájení, a zároveň ochranné pospojování udržuje neživé části na bezpečném (nulovém) potenciálu i v průběhu poruchy.</p>
+    <p><strong>Charakteristické znaky spotřebičů třídy I:</strong></p>
+    <ul>
+      <li>Přívodní kabel obsahuje <strong>ochranný (zelenožlutý) vodič</strong>, vidlice má <strong>ochranný kolík/kontakt</strong>.</li>
+      <li>Kovové části (kryt, šrouby, kovová madla) jsou <strong>galvanicky spojeny s PE</strong> – lze to ověřit měřením přechodového odporu mezi PE kolíkem vidlice a dostupnými kovovými částmi (součást revize spotřebičů dle ČSN 33 1600 ed. 2).</li>
+      <li>Spotřebič <strong>nefunguje bezpečně, pokud je PE vodič přerušen</strong> nebo zásuvka nemá funkční ochranný kontakt – proto se u třídy I klade velký důraz na pravidelnou kontrolu spojitosti ochranného vodiče.</li>
+    </ul>
+    <p><strong>Typické příklady:</strong> pračky, myčky, elektrické sporáky a trouby, bojlery, žehličky s kovovým krytem, stolní počítače a větší elektronika s kovovým šasi, profesionální elektrické nářadí s kovovým krytem.</p>
+
+    <h2>4.4 Třída ochrany II</h2>
+    <p>Spotřebič třídy II je vybaven <strong>dvojitou izolací</strong> (kombinace základní a přídavné izolace, každá schopná samostatně zajistit ochranu) nebo <strong>zesílenou izolací</strong> (jedna izolační vrstva, ale s vlastnostmi rovnocennými dvojité izolaci z hlediska mechanické i elektrické odolnosti). Díky tomu <strong>nevyžaduje ochranné spojení s PE</strong> – i kdyby selhala jedna izolační vrstva (např. základní izolace vinutí motoru), druhá (přídavná/zesílená) vrstva stále zabrání tomu, aby se na přístupných částech objevilo nebezpečné dotykové napětí.</p>
+    <p><strong>Charakteristické znaky spotřebičů třídy II:</strong></p>
+    <ul>
+      <li>Grafická značka <strong>dvou soustředných čtverců (čtverec ve čtverci, „□□")</strong> na typovém štítku – tato značka je definována mezinárodním systémem grafických symbolů <strong>IEC 60417</strong> (konkrétně symbol 5172) a je vyžadována na všech spotřebičích třídy II.</li>
+      <li>Přívodní kabel <strong>nemusí (a obvykle ani nemá) obsahovat ochranný vodič</strong> – vidlice je dvoupólová, bez ochranného kolíku (tzv. „eurokonektor").</li>
+      <li>I když spotřebič nemá PE, <strong>jeho kryt může být kovový</strong> – ochrana zde není zajištěna spojením s PE, ale samotnou izolací, která je natolik robustní (mechanicky i elektricky), že vyloučí přenesení nebezpečného napětí na kryt i při poruše jedné vrstvy izolace.</li>
+    </ul>
+    <p><strong>Typické příklady:</strong> nabíječky a síťové adaptéry, ruční elektrické nářadí s plastovým krytem (vrtačky, brusky), fény, žehličky s plastovým krytem, televizory a menší elektronika, holicí strojky, většina moderních spotřebičů pro domácnost s plastovým tělem.</p>
+    <p><strong>Důležitá poznámka k revizím:</strong> U spotřebičů třídy II se při revizi <strong>nezkouší spojitost ochranného vodiče</strong> (protože žádný není) – místo toho se klade důraz na <strong>vizuální kontrolu neporušenosti izolace krytu</strong> a měření izolačního odporu mezi živými částmi a přístupnými (vodivými, byť nezemněnými) částmi.</p>
+
+    <h2>4.5 Třída ochrany III</h2>
+    <p>Spotřebič třídy III je konstruován pro napájení <strong>bezpečným malým napětím (SELV)</strong> – tedy napětím, jehož hodnota je tak nízká (v rozvodech do 50 V AC / 120 V DC, v praxi často 12 V, 24 V nebo 48 V), že <strong>ani při přímém dotyku živých částí nehrozí nebezpečný úraz elektrickým proudem</strong>. U spotřebičů třídy III se proto <strong>nepoužívá ani ochranný vodič, ani zesílená izolace jako primární ochrana</strong> – bezpečnost je zajištěna už samotnou úrovní napětí, kterou spotřebič může v žádném svém místě (ani při poruše) překročit.</p>
+    <p>Klíčovou podmínkou je, že spotřebič třídy III musí být napájen <strong>výhradně ze zdroje SELV</strong> (bezpečnostní oddělovací transformátor nebo elektronický zdroj se zaručeným oddělením od sítě – viz téma 7) – připojení spotřebiče třídy III na běžné síťové napětí by celý koncept ochrany znehodnotilo.</p>
+    <p><strong>Typické příklady:</strong> zahradní a bazénová svítidla napájená přes transformátor 12/24 V, halogenová osvětlení v koupelnách napájená přes SELV transformátor, dětské hračky na bateriové/transformátorové napájení, některé telefony a zvonková tlačítka, nízkonapěťové LED pásky napájené z odděleného zdroje.</p>
+
+    <h2>4.6 Normy a grafické symboly</h2>
+    <ul>
+      <li><strong>IEC 61140 / ČSN EN 61140</strong> – základní norma definující třídy ochrany 0, I, II, III a obecné principy ochrany před úrazem elektrickým proudem, společná pro instalace i zařízení.</li>
+      <li><strong>IEC 60417</strong> – mezinárodní katalog grafických symbolů používaných na elektrických zařízeních; symbol „čtverec ve čtverci" (č. 5172) pro třídu II je jedním z nejdůležitějších symbolů z tohoto katalogu, který se v testech objevuje.</li>
+      <li><strong>VDE 0140-1</strong> – historická německá norma, na kterou se v odborné literatuře (zejména starší nebo překladové) občas odkazuje jako na ekvivalent dnešních mezinárodních požadavků na třídy ochrany.</li>
+      <li>Spotřebiče jsou dále posuzovány dle příslušných <strong>výrobkových norem</strong> (např. ČSN EN 60335 pro elektrické spotřebiče pro domácnost), které pro konkrétní typ výrobku stanovují, jaká třída ochrany je přípustná/vyžadována.</li>
+    </ul>
+
+    <h2>4.7 Jak rozeznat třídu ochrany na konkrétním spotřebiči – praktický návod</h2>
+    <p>Při revizi nebo běžné kontrole spotřebiče lze třídu ochrany určit kombinací následujících kroků:</p>
+    <ol>
+      <li><strong>Zkontrolovat typový štítek</strong> – výrobce je povinen uvádět grafický symbol třídy II (čtverec ve čtverci), pokud se jedná o třídu II. Absence tohoto symbolu spolu s přítomností ochranného kolíku na vidlici obvykle značí třídu I.</li>
+      <li><strong>Zkontrolovat vidlici/přívodní kabel</strong> – přítomnost ochranného (PE) kolíku/kontaktu a zelenožlutého vodiče v kabelu ukazuje na třídu I. Dvoupólová vidlice bez ochranného kontaktu (eurokonektor) typicky znamená třídu II (pokud je spotřebič napájen ze sítě 230 V) nebo třídu III (pokud je napájecí napětí samo o sobě malé, např. spotřebič je napájen z externího adaptéru SELV).</li>
+      <li><strong>Zkontrolovat napájecí napětí spotřebiče</strong> – pokud spotřebič samotný pracuje na napětí ≤ 50 V AC / 120 V DC a je napájen ze samostatného bezpečnostního zdroje (adaptéru), jde o třídu III; samotný adaptér/zdroj pak má svou vlastní třídu ochrany (typicky II).</li>
+      <li><strong>Posoudit materiál a konstrukci krytu</strong> – kovový kryt bez PE kolíku je u moderních spotřebičů nepravděpodobný (znamenalo by to třídu 0, která je zakázaná) – pokud je kryt kovový, téměř jistě bude přítomen PE (třída I) nebo bude kov galvanicky oddělen od všech živých částí dvojitou izolací (vzácnější provedení třídy II s kovovým krytem).</li>
+    </ol>
+
+    <h2>4.8 Vztah třídy ochrany k ochranným opatřením instalace</h2>
+    <p>Třída ochrany spotřebiče a ochranná opatření instalace (téma 6) se doplňují, ale nejsou zaměnitelné:</p>
+    <ul>
+      <li>U spotřebiče <strong>třídy I</strong> je funkční ochrana <strong>závislá na správné funkci PE vodiče a na samočinném odpojení od zdroje</strong> (jistič/RCD) v instalaci – pokud je PE přerušen nebo RCD chybí/je vadný, ochrana při poruše nefunguje, i když je spotřebič samotný v pořádku.</li>
+      <li>U spotřebiče <strong>třídy II</strong> je ochrana <strong>nezávislá na instalaci</strong> (kromě obecné funkční ochrany před přetížením/zkratem) – proto se třída II často doporučuje a používá v prostorech, kde by zajištění kvalitního pospojování a PE bylo obtížné nebo nejisté (např. dočasné instalace, starší objekty s nejistým stavem PE).</li>
+      <li>U spotřebiče <strong>třídy III</strong> je ochrana zajištěna <strong>úrovní napětí samotné</strong> a je závislá na tom, že napájecí zdroj skutečně poskytuje SELV (tj. zdroj musí splňovat požadavky na bezpečnostní oddělovací transformátor – viz téma 7) – pokud by „SELV" zdroj byl ve skutečnosti pouze běžný transformátor bez zaručeného oddělení (FELV), byla by ochrana spotřebiče třídy III iluzorní.</li>
+    </ul>
+
+    <h2>4.9 Časté chyby a mylné představy</h2>
+    <ul>
+      <li><strong>Mylná představa, že „plastový kryt = třída II"</strong> – třídu ochrany určuje <strong>izolační systém jako celek</strong> (certifikovaný výrobcem a uvedený na štítku), nikoli pouze viditelný materiál krytu. Plastový kryt sám o sobě nezaručuje třídu II, pokud vnitřní konstrukce nesplňuje požadavky na dvojitou/zesílenou izolaci.</li>
+      <li><strong>Záměna „bez PE kolíku" za „třída II" u spotřebičů s velmi nízkým napětím</strong> – pokud je samotný spotřebič napájen malým napětím přes adaptér, jde o třídu III, nikoli II (i když ani jeden z nich nemá PE).</li>
+      <li><strong>Předpoklad, že třída II nepotřebuje žádnou kontrolu při revizi</strong> – i u třídy II se kontroluje neporušenost izolace, mechanický stav krytu a kabelu, izolační odpor – „bez PE" neznamená „bez nutnosti revize".</li>
+      <li><strong>Zaměňování třídy ochrany s krytím IP</strong> – jde o dvě nezávislé klasifikace: třída ochrany řeší ochranu před úrazem el. proudem při poruše izolace, krytí IP řeší ochranu před vniknutím cizích těles a vody (viz <a href="/reference/ip-kryti.html">IP krytí – stupně ochrany</a>).</li>
+    </ul>
+
+    <h2>4.10 Shrnutí pro zkoušku</h2>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Třída</th><th>Princip ochrany</th><th>Ochranný vodič (PE)</th><th>Grafická značka</th><th>Příklady</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">0</td><td>Pouze základní izolace, žádná další ochrana</td><td>Ne</td><td>–</td><td>V ČR zakázáno, historicky staré spotřebiče</td></tr>
+          <tr><td class="code">I</td><td>Základní izolace + spojení neživých částí s PE → samočinné odpojení při poruše</td><td>Ano, povinný a funkčně nutný</td><td>Symbol uzemnění na štítku (volitelně)</td><td>Pračka, sporák, bojler, žehlička s kovovým krytem</td></tr>
+          <tr><td class="code">II</td><td>Dvojitá/zesílená izolace, žádná závislost na PE</td><td>Ne</td><td>Čtverec ve čtverci (IEC 60417 č. 5172)</td><td>Nabíječky, vrtačky, fény, TV</td></tr>
+          <tr><td class="code">III</td><td>Napájení SELV (≤ 50 V AC/120 V DC), žádné nebezpečné napětí v žádném bodě</td><td>Ne (závisí na zdroji SELV)</td><td>Symbol „III" v kosočtverci/na štítku</td><td>Zahradní svítidla 12/24 V, hračky, zvonky</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://www.dekolamp.cz/clanky/detail/tridy-ochrany-elektrickych-spotrebicu.htm" target="_blank" rel="noopener">Třídy ochrany elektrických spotřebičů – Dekolamp.cz</a></li>
+        <li><a href="https://elektrika.cz/data/clanky/stanoveni-tridy-ochrany-u-spotrebice" target="_blank" rel="noopener">Stanovení třídy ochrany u spotřebiče – Elektrika.cz</a></li>
+        <li><a href="https://onccy.com/electrical-equipment-protection-classes-class-0-i-ii-and-iii/" target="_blank" rel="noopener">Electrical Equipment Protection Classes (Class 0, I, II, III) – Onccy</a></li>
+        <li><a href="https://www.iec.ch/webstore/?ref=graphical-symbols" target="_blank" rel="noopener">IEC 60417 – Graphical symbols for use on equipment (databáze symbolů)</a></li>
+        <li><a href="https://www.technicke-normy-csn.cz/" target="_blank" rel="noopener">ČSN EN 61140 – Ochrana před úrazem elektrickým proudem – ÚNMZ/ČAGI přehled</a></li>
+        <li><a href="https://elektro.tzb-info.cz/" target="_blank" rel="noopener">Revize spotřebičů dle ČSN 33 1600 ed. 2 – třídy ochrany a rozsah zkoušek – TZB-info</a></li>
+        <li>ČSN EN 61140 ed. 3, ČSN EN 60335-1, ČSN 33 1600 ed. 2 (placené normy – uvedené informace jsou orientační)</li>
+      </ul>
+    </div>
+  </main>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div><a href="/reference/index.html">← Referenční tabulky</a></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Test elektrotechnické způsobilosti NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <div class="nav">
+    <button type="button" data-view="test" class="active">Test</button>
+    <button type="button" data-view="prehled">Přehled otázek</button>
+    <button type="button" data-view="statistiky">Statistiky</button>
+  </div>
+  <div class="toolbar">
+    <div class="tooltip">Nastavení velikosti písma</div>
+    <div class="group">
+      <span>Otázka:</span>
+      <button type="button" data-fs="otazka" data-delta="-1" title="Zmenšit">A -</button>
+      <span class="val" id="valOtazka">100&nbsp;%</span>
+      <button type="button" data-fs="otazka" data-delta="1" title="Zvětšit">A +</button>
+    </div>
+    <div class="group">
+      <span>Odpovědi:</span>
+      <button type="button" data-fs="moznost" data-delta="-1" title="Zmenšit">A -</button>
+      <span class="val" id="valMoznost">100&nbsp;%</span>
+      <button type="button" data-fs="moznost" data-delta="1" title="Zvětšit">A +</button>
+    </div>
+    <div class="group">
+      <button type="button" id="btnFsReset" title="Výchozí velikost">Reset</button>
+    </div>
+    
+  </div>
+  <div id="app">Načítám…</div>
+  <button type="button" class="secret-end" id="btnSecretEnd" aria-hidden="true" tabindex="-1"></button>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div>
+      <button type="button" class="link-btn" id="btnChangelog">Changelog</button>
+    </div>
+  </footer>
+  <dialog class="changelog-dlg" id="changelogDlg">
+    <button type="button" class="dlg-close" id="btnChangelogClose">Zavřít</button>
+    <h2>Changelog</h2>
+    <h3>v0.8 <span class="ver-date">2026-06-15</span></h3>
+    <ul>
+      <li>Nová sekce <b>Referenční tabulky</b> (samostatné stránky) – Vodiče, Jističe, Barevné značení, Třídy ochrany, Účinky proudu, Ochranná opatření, SELV/PELV/FELV a IP krytí.</li>
+      <li>Navigace mezi tématy je nyní dostupná z lišty nad hlavním menu na každé stránce.</li>
+      <li>Záložka <b>IP krytí</b> byla přesunuta z hlavní aplikace do referenčních tabulek.</li>
+      <li>Sdílené styly vyčleněny do <code>assets/styles.css</code>.</li>
+    </ul>
+    <h3>v0.7 <span class="ver-date">2026-05-25</span></h3>
+    <ul>
+      <li>Záložka <b>Statistiky</b> – historie testů, průměrné skóre, nejlepší výsledek.</li>
+      <li>Režim <b>Trénink chyb</b> – test sestavený z otázek, na které jsi nejčastěji odpověděl špatně.</li>
+      <li>Tabulka 10 nejhůře zvládaných otázek.</li>
+      <li>Oprava: otázka se nezobrazí znovu po návratu z jiné záložky, pokud už byla vyhodnocena.</li>
+      <li>Patička s copyrightem a tímto changelogem.</li>
+    </ul>
+    <h3>v0.6</h3>
+    <ul>
+      <li>Záložka <b>IP krytí</b> – referenční tabulka stupňů ochrany.</li>
+      <li>Podpora obrázků k otázkám (složka <code>assets/</code>).</li>
+    </ul>
+    <h3>v0.5</h3>
+    <ul>
+      <li>Záložka <b>Přehled otázek</b> – všechny otázky seřazené podle ID se zvýrazněnou správnou odpovědí.</li>
+      <li>Vyhledávání v přehledu podle čísla otázky.</li>
+    </ul>
+    <h3>v0.4</h3>
+    <ul>
+      <li>Detailní souhrn na konci testu – u špatných otázek se zobrazí všechny možnosti s barevným zvýrazněním.</li>
+      <li>Tajné tlačítko a klávesová zkratka <code>Ctrl+Shift+K</code> pro předčasné ukončení testu.</li>
+    </ul>
+    <h3>v0.3</h3>
+    <ul>
+      <li>Ovládání velikosti písma otázky a odpovědí (uloženo v prohlížeči).</li>
+      <li>Tmavé „vesmírné" pozadí, sklem inspirované karty.</li>
+    </ul>
+    <h3>v0.2</h3>
+    <ul>
+      <li>Dvoufázové vyhodnocení otázky: barevné zvýraznění správných / chybných / chybějících odpovědí.</li>
+    </ul>
+    <h3>v0.1</h3>
+    <ul>
+      <li>Základní testovací režim: blok 40 náhodných otázek, checkbox odpovědi, souhrn na konci.</li>
+    </ul>
+  </dialog>
+  <script>
+    const POCET_OTAZEK = 40;
+    // ID otázek, ke kterým existuje obrázek assets/ID<n>.jpg
+    const IMAGE_IDS = new Set([
+      166, 180, 241, 248, 251, 252, 260, 261, 267, 268, 269, 270, 292,
+      352, 353, 354, 355, 407, 408, 416, 417, 418, 453,
+      492, 493, 494, 495, 498, 499
+    ]);
+    const FS_DEFAULTS = { otazka: 1.05, moznost: 1.00 };
+    const FS_STEP = 0.1;
+    const FS_MIN = 0.7;
+    const FS_MAX = 2.0;
+    let fontSizes = { ...FS_DEFAULTS };
+    let vsechnyOtazky = [];
+    let odpovedi = {};
+    let blok = [];
+    let aktualni = 0;
+    let vysledky = [];
+    let vyhodnoceno = false;
+    let aktualniPohled = 'test';
+    let prehledFilter = '';
+    let souhrnUlozen = false;
+    let questionStats = {};
+    let testHistory = [];
+    const STATS_KEY = 'questionStats';
+    const HISTORY_KEY = 'testHistory';
+    const PROGRESS_KEY = 'testProgress';
+    const MAX_HISTORY = 50;
+
+    function nactiStatistiky() {
+      try {
+        questionStats = JSON.parse(localStorage.getItem(STATS_KEY) || '{}') || {};
+        testHistory = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]') || [];
+      } catch (e) {
+        questionStats = {};
+        testHistory = [];
+      }
+    }
+
+    function ulozStatistiky() {
+      try {
+        localStorage.setItem(STATS_KEY, JSON.stringify(questionStats));
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(testHistory));
+      } catch (e) {}
+    }
+
+    function zaznamenejVysledekOtazky(id, ok) {
+      const k = String(id);
+      if (!questionStats[k]) questionStats[k] = { correct: 0, wrong: 0 };
+      if (ok) questionStats[k].correct++;
+      else questionStats[k].wrong++;
+      questionStats[k].lastResult = ok ? 'ok' : 'bad';
+      questionStats[k].lastSeen = Date.now();
+      ulozStatistiky();
+    }
+
+    function zaznamenejTestDoHistorie() {
+      if (souhrnUlozen) return;
+      if (vysledky.length === 0) return;
+      souhrnUlozen = true;
+      const ok = vysledky.filter(v => v.ok).length;
+      testHistory.unshift({
+        date: Date.now(),
+        total: vysledky.length,
+        correct: ok,
+        percent: Math.round((ok / vysledky.length) * 100)
+      });
+      if (testHistory.length > MAX_HISTORY) testHistory.length = MAX_HISTORY;
+      ulozStatistiky();
+    }
+
+    function ulozProgress() {
+      try {
+        sessionStorage.setItem(PROGRESS_KEY, JSON.stringify({
+          blokIds: blok.map(o => o.id),
+          aktualni,
+          vysledky,
+          souhrnUlozen
+        }));
+      } catch (e) {}
+    }
+
+    function vycistiProgress() {
+      try { sessionStorage.removeItem(PROGRESS_KEY); } catch (e) {}
+    }
+
+    function obnovProgress() {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(PROGRESS_KEY) || 'null');
+        if (!saved || !Array.isArray(saved.blokIds) || saved.blokIds.length === 0) return false;
+        const otazkyById = {};
+        for (const o of vsechnyOtazky) otazkyById[String(o.id)] = o;
+        const obnovenyBlok = saved.blokIds.map(id => otazkyById[String(id)]).filter(Boolean);
+        if (obnovenyBlok.length !== saved.blokIds.length) return false;
+        blok = obnovenyBlok;
+        aktualni = typeof saved.aktualni === 'number' ? saved.aktualni : 0;
+        vysledky = Array.isArray(saved.vysledky) ? saved.vysledky : [];
+        souhrnUlozen = !!saved.souhrnUlozen;
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    nactiStatistiky();
+
+    const changelogDlg = document.getElementById('changelogDlg');
+    document.getElementById('btnChangelog').addEventListener('click', () => {
+      if (typeof changelogDlg.showModal === 'function') changelogDlg.showModal();
+      else changelogDlg.setAttribute('open', '');
+    });
+    document.getElementById('btnChangelogClose').addEventListener('click', () => {
+      if (typeof changelogDlg.close === 'function') changelogDlg.close();
+      else changelogDlg.removeAttribute('open');
+    });
+    changelogDlg.addEventListener('click', (e) => {
+      if (e.target === changelogDlg) changelogDlg.close();
+    });
+
+    function loadFontSizes() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('fontSizes') || 'null');
+        if (saved && typeof saved.otazka === 'number' && typeof saved.moznost === 'number') {
+          fontSizes = { otazka: saved.otazka, moznost: saved.moznost };
+        }
+      } catch (e) {}
+      applyFontSizes();
+    }
+
+    function applyFontSizes() {
+      document.documentElement.style.setProperty('--otazka-size', fontSizes.otazka + 'rem');
+      document.documentElement.style.setProperty('--moznost-size', fontSizes.moznost + 'rem');
+      const pctO = Math.round((fontSizes.otazka / FS_DEFAULTS.otazka) * 100);
+      const pctM = Math.round((fontSizes.moznost / FS_DEFAULTS.moznost) * 100);
+      document.getElementById('valOtazka').innerHTML = pctO + '&nbsp;%';
+      document.getElementById('valMoznost').innerHTML = pctM + '&nbsp;%';
+      try { localStorage.setItem('fontSizes', JSON.stringify(fontSizes)); } catch (e) {}
+    }
+
+    function changeFontSize(klic, delta) {
+      const nova = Math.round((fontSizes[klic] + delta * FS_STEP) * 100) / 100;
+      if (nova < FS_MIN || nova > FS_MAX) return;
+      fontSizes[klic] = nova;
+      applyFontSizes();
+    }
+
+    document.querySelectorAll('.toolbar button[data-fs]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeFontSize(btn.dataset.fs, parseInt(btn.dataset.delta, 10));
+      });
+    });
+    document.getElementById('btnFsReset').addEventListener('click', () => {
+      fontSizes = { ...FS_DEFAULTS };
+      applyFontSizes();
+    });
+    loadFontSizes();
+
+    document.querySelectorAll('.nav button[data-view]').forEach(btn => {
+      btn.addEventListener('click', () => prepnoutPohled(btn.dataset.view));
+    });
+
+    function ukoncitTestPredcasne() {
+      if (aktualniPohled !== 'test') return;
+      if (vysledky.length === 0) return;
+      aktualni = blok.length;
+      renderSouhrn();
+    }
+
+    document.getElementById('btnSecretEnd').addEventListener('click', ukoncitTestPredcasne);
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && (e.key === 'K' || e.key === 'k')) {
+        e.preventDefault();
+        ukoncitTestPredcasne();
+      }
+    });
+
+    function prepnoutPohled(novy) {
+      aktualniPohled = novy;
+      document.querySelectorAll('.nav button[data-view]').forEach(b => {
+        b.classList.toggle('active', b.dataset.view === novy);
+      });
+      renderAktualniPohled();
+    }
+
+    function renderAktualniPohled() {
+      if (aktualniPohled === 'statistiky') {
+        renderStatistiky();
+        return;
+      }
+      if (vsechnyOtazky.length === 0) {
+        document.getElementById('app').textContent = 'Načítám…';
+        return;
+      }
+      if (aktualniPohled === 'prehled') {
+        renderPrehled();
+      } else {
+        if (blok.length === 0) startNovyBlok();
+        else if (aktualni >= blok.length) renderSouhrn();
+        else renderOtazka();
+      }
+    }
+
+    async function init() {
+      try {
+        const [oRes, aRes] = await Promise.all([fetch('question.json'), fetch('ans.json')]);
+        if (!oRes.ok || !aRes.ok) throw new Error('Soubory se nepodařilo načíst (HTTP ' + oRes.status + '/' + aRes.status + ').');
+        const rawOtazky = await oRes.json();
+        odpovedi = await aRes.json();
+        vsechnyOtazky = [];
+        for (const item of rawOtazky) {
+          if (item && Array.isArray(item.otazky)) {
+            for (const o of item.otazky) {
+              vsechnyOtazky.push({ ...o, kapitola: item.kapitola || '' });
+            }
+          } else if (item && item.id !== undefined) {
+            vsechnyOtazky.push({ ...item, kapitola: item.kapitola || '' });
+          }
+        }
+        obnovProgress();
+        renderAktualniPohled();
+      } catch (e) {
+        document.getElementById('app').innerHTML =
+          '<div class="err">Chyba při načítání dat: ' + escape(e.message) +
+          '<br><br>Spusť aplikaci přes lokální server (např. <code>python -m http.server</code> nebo VSCode Live Server).</div>';
+      }
+    }
+
+    function zamichat(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function startNovyBlok() {
+      const shuffled = zamichat(vsechnyOtazky);
+      const pocet = Math.min(POCET_OTAZEK, vsechnyOtazky.length);
+      blok = shuffled.slice(0, pocet);
+      aktualni = 0;
+      vysledky = [];
+      souhrnUlozen = false;
+      ulozProgress();
+      renderOtazka();
+    }
+
+    function escape(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+
+    function obrazekHtml(id) {
+      const n = Number(id);
+      if (!IMAGE_IDS.has(n)) return '';
+      return `<img class="question-img" src="assets/ID${n}.jpg" alt="Obrázek k otázce ${n}" loading="lazy">`;
+    }
+
+    function renderOtazka() {
+      if (aktualni < vysledky.length) {
+        aktualni = vysledky.length;
+        if (aktualni >= blok.length) { renderSouhrn(); return; }
+      }
+      const o = blok[aktualni];
+      vyhodnoceno = false;
+      const okZatim = vysledky.filter(v => v.ok).length;
+      const skore = vysledky.length > 0 ? ` · Skóre ${okZatim}/${vysledky.length}` : '';
+      document.getElementById('app').innerHTML = `
+        <div class="card">
+          <div class="meta">Otázka ${aktualni + 1} / ${blok.length} · ID ${o.id}${skore}</div>
+          ${o.kapitola ? `<div class="meta">${escape(o.kapitola)}</div>` : ''}
+          <div class="otazka">${escape(o.otazka)}</div>
+          ${obrazekHtml(o.id)}
+          <form id="form">
+            ${Object.entries(o.moznosti).map(([k, v]) => `
+              <label class="moznost" data-opt="${k}">
+                <input type="checkbox" name="opt" value="${k}">
+                <b>${k})</b> ${escape(v)}
+              </label>
+            `).join('')}
+          </form>
+          <button id="btnNext">Zkontrolovat</button>
+        </div>
+      `;
+      document.getElementById('btnNext').onclick = handleNext;
+    }
+
+    function handleNext() {
+      if (!vyhodnoceno) {
+        vyhodnotit();
+      } else {
+        aktualni++;
+        if (aktualni >= blok.length) renderSouhrn();
+        else renderOtazka();
+      }
+    }
+
+    function vyhodnotit() {
+      const o = blok[aktualni];
+      const selected = [...document.querySelectorAll('input[name="opt"]:checked')]
+        .map(i => i.value).sort().join('');
+      const correct = (odpovedi[o.id] || '').split('').sort().join('');
+      const correctSet = new Set(correct.split(''));
+      const selectedSet = new Set(selected.split(''));
+
+      document.querySelectorAll('.moznost').forEach(label => {
+        const k = label.dataset.opt;
+        const input = label.querySelector('input');
+        input.disabled = true;
+        label.classList.add('disabled');
+        let icon = '';
+        if (correctSet.has(k) && selectedSet.has(k)) { label.classList.add('correct'); icon = '✓'; }
+        else if (!correctSet.has(k) && selectedSet.has(k)) { label.classList.add('wrong'); icon = '✗'; }
+        else if (correctSet.has(k) && !selectedSet.has(k)) { label.classList.add('missed'); icon = '✓'; }
+        if (icon) {
+          const span = document.createElement('span');
+          span.setAttribute('aria-hidden', 'true');
+          span.textContent = ' ' + icon;
+          label.appendChild(span);
+        }
+      });
+
+      const ok = selected === correct && correct.length > 0;
+      vysledky.push({
+        id: o.id,
+        otazka: o.otazka,
+        kapitola: o.kapitola,
+        moznosti: o.moznosti,
+        spravne: correct,
+        zvolene: selected,
+        ok: ok
+      });
+      zaznamenejVysledekOtazky(o.id, ok);
+      ulozProgress();
+
+      vyhodnoceno = true;
+      const posledni = aktualni + 1 === blok.length;
+      document.getElementById('btnNext').textContent = posledni ? 'Zobrazit výsledek' : 'Další otázka';
+    }
+
+    function renderSouhrn() {
+      zaznamenejTestDoHistorie();
+      vycistiProgress();
+      const okCount = vysledky.filter(v => v.ok).length;
+      const procent = Math.round((okCount / vysledky.length) * 100);
+      const polozky = vysledky.map((v, i) => {
+        if (v.ok) {
+          return `
+            <div class="summary-item">
+              <div><b>${i + 1}. (ID ${v.id})</b> ${escape(v.otazka)}</div>
+              <div style="margin-top:0.3rem;">
+                <span class="badge ok">Správně</span>
+                Odpověď: <b>${escape(v.zvolene)}</b>
+              </div>
+            </div>
+          `;
+        }
+        const correctSet = new Set(v.spravne.split(''));
+        const selectedSet = new Set((v.zvolene || '').split(''));
+        const moznosti = Object.entries(v.moznosti).map(([k, txt]) => {
+          let cls = '';
+          let icon = '';
+          if (correctSet.has(k) && selectedSet.has(k)) { cls = 'correct'; icon = '✓ '; }
+          else if (!correctSet.has(k) && selectedSet.has(k)) { cls = 'wrong'; icon = '✗ '; }
+          else if (correctSet.has(k) && !selectedSet.has(k)) { cls = 'missed'; icon = '✓ '; }
+          return `
+            <div class="moznost disabled ${cls}" data-opt="${k}">
+              <b>${k})</b> <span aria-hidden="true">${icon}</span>${escape(txt)}
+            </div>
+          `;
+        }).join('');
+        return `
+          <div class="summary-item">
+            <div><b>${i + 1}. (ID ${v.id})</b> ${escape(v.otazka)}</div>
+            ${obrazekHtml(v.id)}
+            <div style="margin-top:0.4rem;">
+              <span class="badge bad">Špatně</span>
+              Vaše odpověď: <b>${escape(v.zvolene || '—')}</b> ·
+              Správně: <b style="color:#4ade80;">${escape(v.spravne || '?')}</b>
+            </div>
+            <div style="margin-top:0.5rem;">${moznosti}</div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('app').innerHTML = `
+        <div class="card">
+          <h1>Výsledek: ${okCount} / ${vysledky.length} (${procent} %)</h1>
+          <button id="btnRestart">Nový test</button>
+          <div style="margin-top:1.5rem;">${polozky}</div>
+        </div>
+      `;
+      document.getElementById('btnRestart').onclick = startNovyBlok;
+    }
+
+    function renderPrehled() {
+      const sorted = [...vsechnyOtazky].sort((a, b) => Number(a.id) - Number(b.id));
+      const filter = prehledFilter.trim();
+      const filterLower = filter.toLowerCase();
+      const filtered = filter
+        ? sorted.filter(o =>
+            String(o.id).startsWith(filter) ||
+            (o.kapitola && o.kapitola.toLowerCase().includes(filterLower)) ||
+            (o.otazka && o.otazka.toLowerCase().includes(filterLower))
+          )
+        : sorted;
+
+      const polozky = filtered.map(o => {
+        const correct = (odpovedi[o.id] || '').split('').sort().join('');
+        const correctSet = new Set(correct.split(''));
+        const moznosti = Object.entries(o.moznosti).map(([k, v]) => `
+          <div class="moznost disabled ${correctSet.has(k) ? 'correct' : ''}" data-opt="${k}">
+            <b>${k})</b> <span aria-hidden="true">${correctSet.has(k) ? '✓ ' : ''}</span>${escape(v)}
+          </div>
+        `).join('');
+        return `
+          <div class="card prehled-item">
+            <div class="meta">ID ${o.id}${o.kapitola ? ' · ' + escape(o.kapitola) : ''}</div>
+            <div class="otazka">${escape(o.otazka)}</div>
+            ${obrazekHtml(o.id)}
+            ${moznosti}
+            <div class="meta" style="margin-top: 0.6rem;">
+              Správná odpověď: <b style="color:#4ade80;">${escape(correct || '?')}</b>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const prazdno = filtered.length === 0
+        ? '<div class="card"><div class="meta">Žádná otázka nenalezena.</div></div>'
+        : '';
+
+      document.getElementById('app').innerHTML = `
+        <div class="card" style="margin-bottom: 1rem;">
+          <label for="searchInput" class="sr-only">Hledat otázky podle čísla, kapitoly nebo textu</label>
+          <input type="text" class="search-input" id="searchInput"
+            placeholder="Hledat podle čísla, kapitoly nebo textu otázky…" value="${escape(filter)}">
+          <div class="meta" style="margin-top: 0.6rem;">
+            Zobrazeno ${filtered.length} z ${sorted.length} otázek.
+          </div>
+        </div>
+        ${prazdno}
+        ${polozky}
+      `;
+
+      const input = document.getElementById('searchInput');
+      input.focus();
+      const len = input.value.length;
+      input.setSelectionRange(len, len);
+      input.addEventListener('input', (e) => {
+        prehledFilter = e.target.value;
+        renderPrehled();
+      });
+    }
+
+    function formatDatum(ts) {
+      const d = new Date(ts);
+      const pad = n => String(n).padStart(2, '0');
+      return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    function spustitTreninkChyb() {
+      if (vsechnyOtazky.length === 0) {
+        alert('Otázky ještě nejsou načteny.');
+        return;
+      }
+      const problemy = Object.entries(questionStats)
+        .filter(([id, s]) => s && s.wrong > 0)
+        .map(([id, s]) => ({ id: Number(id), score: s.wrong - (s.correct || 0), wrong: s.wrong }))
+        .sort((a, b) => b.score - a.score || b.wrong - a.wrong);
+      if (problemy.length === 0) {
+        alert('Zatím nejsou žádné chybné odpovědi v historii. Nejdřív si zkus test.');
+        return;
+      }
+      const idsSet = new Set(problemy.slice(0, POCET_OTAZEK).map(p => p.id));
+      const vybrane = vsechnyOtazky.filter(o => idsSet.has(Number(o.id)));
+      if (vybrane.length === 0) {
+        alert('Otázky z historie chyb se nepodařilo najít v aktuálních datech.');
+        return;
+      }
+      blok = zamichat(vybrane);
+      aktualni = 0;
+      vysledky = [];
+      souhrnUlozen = false;
+      ulozProgress();
+      prepnoutPohled('test');
+    }
+
+    function smazatStatistiky() {
+      if (!confirm('Opravdu chceš smazat všechny statistiky a historii testů?')) return;
+      questionStats = {};
+      testHistory = [];
+      ulozStatistiky();
+      renderStatistiky();
+    }
+
+    function renderStatistiky() {
+      const pocetTestu = testHistory.length;
+      const prumer = pocetTestu > 0
+        ? Math.round(testHistory.reduce((s, t) => s + t.percent, 0) / pocetTestu)
+        : 0;
+      const nejlepsi = pocetTestu > 0 ? Math.max(...testHistory.map(t => t.percent)) : 0;
+      const totalOk = Object.values(questionStats).reduce((s, x) => s + (x.correct || 0), 0);
+      const totalBad = Object.values(questionStats).reduce((s, x) => s + (x.wrong || 0), 0);
+      const pocetChybnych = Object.values(questionStats).filter(s => s.wrong > 0).length;
+
+      const otazkyById = {};
+      for (const o of vsechnyOtazky) otazkyById[String(o.id)] = o;
+
+      const problemy = Object.entries(questionStats)
+        .filter(([id, s]) => s && s.wrong > 0)
+        .map(([id, s]) => ({
+          id, wrong: s.wrong, correct: s.correct || 0,
+          score: s.wrong - (s.correct || 0),
+          text: otazkyById[id] ? otazkyById[id].otazka : '(otázka není v aktuálních datech)'
+        }))
+        .sort((a, b) => b.score - a.score || b.wrong - a.wrong)
+        .slice(0, 10);
+
+      const historieRows = testHistory.slice(0, 20).map(t => `
+        <tr>
+          <td>${escape(formatDatum(t.date))}</td>
+          <td class="code">${t.correct} / ${t.total}</td>
+          <td class="code" style="color:${t.percent >= 75 ? '#4ade80' : t.percent >= 50 ? '#eab308' : '#f87171'};">${t.percent}&nbsp;%</td>
+        </tr>
+      `).join('');
+
+      const problemyRows = problemy.map(p => `
+        <tr>
+          <td class="code">${p.id}</td>
+          <td>${escape(p.text)}</td>
+          <td class="code" style="color:#f87171;">${p.wrong}×</td>
+          <td class="code" style="color:#4ade80;">${p.correct}×</td>
+        </tr>
+      `).join('');
+
+      const treninkDisabled = pocetChybnych === 0 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : '';
+
+      document.getElementById('app').innerHTML = `
+        <div class="card">
+          <h1>Statistiky</h1>
+          <div class="stat-grid">
+            <div class="stat-box">
+              <div class="stat-label">Absolvované testy</div>
+              <div class="stat-value">${pocetTestu}</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Průměrné skóre</div>
+              <div class="stat-value">${prumer}&nbsp;%</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Nejlepší výsledek</div>
+              <div class="stat-value">${nejlepsi}&nbsp;%</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Správně / špatně</div>
+              <div class="stat-value"><span style="color:#4ade80;">${totalOk}</span> / <span style="color:#f87171;">${totalBad}</span></div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button type="button" id="btnTrenink" ${treninkDisabled}>Trénink chyb (${pocetChybnych})</button>
+            <button type="button" class="btn-danger" id="btnReset">Smazat statistiky</button>
+          </div>
+          <h2 class="stat-section-title">Nejhůře zvládané otázky</h2>
+          ${problemy.length === 0
+            ? '<div class="empty-state">Zatím nejsou žádné problematické otázky.</div>'
+            : `<div class="ip-wrapper"><table class="ip-table compact">
+                <thead><tr><th>ID</th><th>Otázka</th><th>Špatně</th><th>Správně</th></tr></thead>
+                <tbody>${problemyRows}</tbody>
+              </table></div>`}
+          <h2 class="stat-section-title">Historie testů</h2>
+          ${pocetTestu === 0
+            ? '<div class="empty-state">Zatím žádné absolvované testy.</div>'
+            : `<div class="ip-wrapper"><table class="ip-table compact">
+                <thead><tr><th>Datum</th><th>Skóre</th><th>Procenta</th></tr></thead>
+                <tbody>${historieRows}</tbody>
+              </table></div>`}
+        </div>
+      `;
+      const btnTrenink = document.getElementById('btnTrenink');
+      if (btnTrenink) btnTrenink.addEventListener('click', spustitTreninkChyb);
+      document.getElementById('btnReset').addEventListener('click', smazatStatistiky);
+    }
+
+    init();
+  </script>
+</body>
+</html>

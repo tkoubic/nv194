@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Jističe – charakteristiky B, C, D | Test NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <main class="card content">
+    <h1>2. Jističe – vypínací charakteristiky B, C, D</h1>
+    <p class="lead">Instalační jističe chrání obvod před přetížením a zkratem pomocí dvou spouští – tepelné a elektromagnetické. Vypínací charakteristika (B, C, D a další) udává práh okamžitého (zkratového) vybavení a volí se podle typu zátěže a jejího rázového proudu při zapnutí.</p>
+
+    <h2>2.1 Princip funkce instalačního jističe</h2>
+    <p>Instalační jistič (dle ČSN EN 60898-1) je spínací a ochranný přístroj, který obvod <strong>automaticky odpojí</strong> ve dvou typických poruchových situacích – při <strong>přetížení</strong> a při <strong>zkratu</strong>. K tomu slouží dvě fyzikálně odlišné spouště umístěné v jednom přístroji:</p>
+    <ul>
+      <li><strong>Tepelná (bimetalová) spoušť</strong> – reaguje na <strong>přetížení</strong>, tedy na proudy o málo vyšší než jmenovitý proud I<sub>n</sub>, které trvají delší dobu (sekundy až minuty). Bimetalový pásek se ohřívá proudem procházejícím obvodem, ohýbá se a po dosažení určité výchylky mechanicky vybaví vypínací mechanismus. Protože jde o tepelný děj, vypínací doba silně závisí na velikosti přetížení – při proudu blízkém I<sub>n</sub> může vybavení trvat desítky minut až hodiny, při větším přetížení (např. 1,5–2× I<sub>n</sub>) řádově minuty.</li>
+      <li><strong>Elektromagnetická (zkratová) spoušť</strong> – reaguje na <strong>velké proudy</strong> vznikající při zkratu, řádově jednotky až desítky násobků I<sub>n</sub>, a vybavuje <strong>téměř okamžitě</strong> (v řádu milisekund, typicky do 0,1 s). Tvoří ji cívka s jádrem (elektromagnet), které se při průchodu velkého proudu přitáhne a mechanicky vybaví vypínací mechanismus bez ohledu na tepelné účinky.</li>
+    </ul>
+    <p>Právě <strong>práh a rychlost vybavení elektromagnetické (zkratové) spouště</strong> je to, co rozlišuje jednotlivé <strong>vypínací charakteristiky B, C, D</strong> (a další, méně běžné K, Z). Tepelná charakteristika (ochrana proti přetížení) je u všech typů v rámci jedné jmenovité hodnoty I<sub>n</sub> prakticky stejná – liší se jen práh okamžitého (zkratového) vybavení.</p>
+
+    <h2>2.2 Vypínací charakteristiky B, C, D – rozsahy a použití</h2>
+    <p>Vypínací charakteristika udává <strong>rozsah násobků jmenovitého proudu I<sub>n</sub></strong>, ve kterém musí elektromagnetická spoušť jistič vybavit okamžitě. Norma ČSN EN 60898-1 definuje tři základní charakteristiky:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Charakteristika</th><th>Rozsah okamžitého vybavení (×I<sub>n</sub>)</th><th>Doba vybavení</th><th>Typické použití</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">B</td><td>3–5 × I<sub>n</sub></td><td>&lt; 0,1 s při ≥ 5×I<sub>n</sub></td><td>Obvody s malými rázovými (zapínacími) proudy – světelné okruhy, zásuvkové okruhy v bytech s nenáročnými spotřebiči, obvody s dlouhým vedením (kde je potřeba nízký zkratový práh, protože impedance vedení může omezit zkratový proud)</td></tr>
+          <tr><td class="code">C</td><td>5–10 × I<sub>n</sub></td><td>&lt; 0,1 s při ≥ 10×I<sub>n</sub></td><td>Nejčastěji používaná charakteristika v bytových a komerčních instalacích – zásuvkové okruhy, běžné spotřebiče s mírným záběhovým/rázovým proudem (zářivky, menší motory, ventilátory, chladničky)</td></tr>
+          <tr><td class="code">D</td><td>10–20 × I<sub>n</sub></td><td>&lt; 0,1 s při ≥ 20×I<sub>n</sub></td><td>Obvody s velkým rázovým proudem při zapnutí – transformátory, větší elektromotory (kompresory, čerpadla), svářečky, zařízení s vysokým záběrným proudem, kde by charakteristika B nebo C vybavovala nežádoucně při každém startu</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Mimo tyto tři „klasické" charakteristiky se v praxi (a okrajově i v testových otázkách) objevují i další, méně obvyklé:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Charakteristika</th><th>Rozsah okamžitého vybavení (×I<sub>n</sub>)</th><th>Typické použití</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">K</td><td>8–12 × I<sub>n</sub></td><td>Indukční zátěže, motorové obvody (často v průmyslových instalacích)</td></tr>
+          <tr><td class="code">Z</td><td>2–3 × I<sub>n</sub></td><td>Velmi citlivé elektronické obvody, měřicí a řídicí technika, polovodičové prvky</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Praktická pomůcka pro zapamatování:</strong> Čím náročnější je rozběh/zapnutí spotřebiče (větší rázový proud), tím vyšší charakteristika (B → C → D/K) je potřeba, aby jistič nezbytečně nevybavoval při běžném startu zařízení. Naopak čím citlivější a méně proudově náročný obvod (elektronika), tím nižší charakteristika (Z, popř. B).</p>
+
+    <h2>2.3 Smluvené proudy – I1 a I2</h2>
+    <p>Norma ČSN EN 60898-1 definuje dva důležité <strong>smluvené proudy</strong>, které popisují chování <strong>tepelné</strong> (přetížitelné) spouště jističe – tedy nezávisle na vypínací charakteristice B/C/D:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Pojem</th><th>Symbol</th><th>Hodnota</th><th>Význam</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Smluvený nevypínací proud</td><td class="code">I<sub>1</sub> (I<sub>nt</sub>)</td><td><strong>1,13 × I<sub>n</sub></strong></td><td>Proud, který jistič smí protékat po stanovenou zkušební dobu (1 h pro I<sub>n</sub> ≤ 63 A, 2 h pro I<sub>n</sub> &gt; 63 A) <strong>bez vybavení</strong>. Jinak řečeno – při tomto proudu jistič ještě nemusí (a nesmí) vypnout.</td></tr>
+          <tr><td>Smluvený vypínací proud</td><td class="code">I<sub>2</sub> (I<sub>t</sub>)</td><td><strong>1,45 × I<sub>n</sub></strong></td><td>Proud, při kterém musí jistič <strong>do stanovené doby vybavit</strong> (1 h resp. 2 h dle I<sub>n</sub>).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Tyto dva proudy jsou klíčové pro <strong>koordinaci jištění s vodičem</strong> (viz téma 1, kapitola 1.7) – podmínka I<sub>2</sub> ≤ 1,45 × I<sub>z</sub> je u jističů splněných dle EN 60898-1 (kde I<sub>2</sub> = 1,45 × I<sub>n</sub>) automaticky zajištěna, pokud platí I<sub>n</sub> ≤ I<sub>z</sub>.</p>
+    <p>Je důležité rozlišovat tyto <strong>smluvené proudy tepelné spouště</strong> (1,13×/1,45×I<sub>n</sub>, doba vybavení v řádu hodin) od <strong>prahů elektromagnetické (zkratové) spouště</strong> (3–20×I<sub>n</sub> dle charakteristiky B/C/D, doba vybavení v řádu milisekund) – jde o dva různé mechanismy uvnitř téhož přístroje, reagující na různé velikosti a délky trvání proudu.</p>
+
+    <h2>2.4 Vypínací schopnost (jmenovitý zkratový vypínací proud I<sub>cn</sub>)</h2>
+    <p>Kromě charakteristiky (B/C/D) je u každého jističe uvedena i <strong>vypínací schopnost I<sub>cn</sub></strong> – tedy maximální zkratový proud, který je jistič schopen bezpečně vypnout (přerušit) bez poškození nebo nebezpečného chování (např. výbuchu, svaření kontaktů).</p>
+    <p>Typické hodnoty I<sub>cn</sub> u instalačních jističů pro domovní a komerční instalace:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Vypínací schopnost</th><th>Typické použití</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">4,5 kA</td><td>starší/levnější instalace, byty s nižším zkratovým proudem v síti</td></tr>
+          <tr><td class="code">6 kA</td><td>standardní bytové instalace (nejčastější volba v ČR)</td></tr>
+          <tr><td class="code">10 kA</td><td>komerční objekty, instalace blíže k distribučnímu trafu, průmysl</td></tr>
+          <tr><td class="code">15–25 kA i více</td><td>průmyslové rozváděče, hlavní rozváděče budov, instalace s vysokým předpokládaným zkratovým proudem</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Vypínací schopnost jističe musí být <strong>vždy vyšší nebo rovna předpokládanému zkratovému proudu</strong> v místě instalace (tzv. zkratová odolnost musí být dostatečná). Pokud by zkratový proud v síti byl vyšší než I<sub>cn</sub> jističe, mohlo by při zkratu dojít ke zničení jističe a nebezpečnému stavu (svaření kontaktů, požár).</p>
+
+    <h2>2.5 Selektivita (koordinace) jištění</h2>
+    <p>V instalacích s více úrovněmi jištění (např. hlavní jistič před elektroměrem → podružný jistič v rozváděči → jistič jednotlivého obvodu) je žádoucí, aby při poruše na konci řetězce vypnul <strong>pouze nejbližší (podřízený) jistič</strong>, a ne jistič vyšší úrovně – tomu se říká <strong>selektivita</strong>.</p>
+    <p>Rozlišujeme:</p>
+    <ul>
+      <li><strong>Proudovou selektivitu</strong> – zajišťuje se použitím jističů s rozdílnými charakteristikami nebo jmenovitými proudy tak, aby podřízený jistič vybavil při nižším proudu než nadřazený.</li>
+      <li><strong>Časovou selektivitu</strong> – u jističů s nastavitelným zpožděním vybavení (typicky u výkonových/kompaktních jističů, méně u běžných instalačních jističů) se nadřazený přístroj nastaví na vybavení s časovým zpožděním oproti podřízenému.</li>
+    </ul>
+    <p>U běžných instalačních jističů B/C/D je selektivita omezená – často se v praxi řeší tak, že nadřazený jistič má vyšší jmenovitý proud a/nebo „tvrdší" charakteristiku (např. hlavní jistič D32 a podružné C16), což snižuje pravděpodobnost současného vybavení obou při poruše na podřízené úrovni, ale <strong>plnou selektivitu nelze mezi dvěma běžnými instalačními jističi obecně zaručit</strong> bez výrobcem dodaných selektivních tabulek.</p>
+
+    <h2>2.6 Vztah jističe k průřezu vodiče (koordinace)</h2>
+    <p>Jak je popsáno v tématu 1, jmenovitý proud jističe I<sub>n</sub> musí splňovat I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>. Volba <strong>charakteristiky (B/C/D)</strong> sama o sobě průřez vodiče neovlivňuje (tepelná spoušť, která chrání vodič před přetížením, je při stejném I<sub>n</sub> u všech charakteristik prakticky stejná) – charakteristika ovlivňuje <strong>práh okamžitého vybavení při zkratu</strong>, tedy spíše otázku, zda jistič vybaví dostatečně rychle při zkratu na konci dlouhého vedení (kde je zkratový proud nižší kvůli impedanci vedení), a otázku selektivity a odolnosti proti nežádoucímu vybavení při rázových proudech spotřebičů.</p>
+
+    <h2>2.7 Proudové chrániče (RCD) – doplňující téma často zaměňované s jističi</h2>
+    <p>V testových otázkách NV 194/2022 se často objevuje záměna pojmů <strong>jistič</strong> (ochrana před přetížením a zkratem, reaguje na velikost proudu ve fázovém/nulovém vodiči) a <strong>proudový chránič – RCD</strong> (ochrana před úrazem el. proudem a požárem od poruchových proudů, reaguje na <strong>rozdílový proud</strong> mezi vstupujícím a vystupujícím proudem, tedy na unikající proud do země/PE).</p>
+    <p>RCD se podle tvaru reziduálního proudu, na který reagují, dělí na typy:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Typ RCD</th><th>Reaguje na</th><th>Typické použití</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">AC</td><td>Sinusové střídavé poruchové proudy</td><td>Základní typ pro běžné zásuvkové a světelné obvody s odporovou/induktivní zátěží bez elektroniky</td></tr>
+          <tr><td class="code">A</td><td>Sinusové AC i pulzující stejnosměrné poruchové proudy</td><td>Obvody s elektronikou – spotřebiče s frekvenčními měniči, spínanými zdroji (PC, LED, pračky, indukční sporáky) – dnes standard pro nové instalace</td></tr>
+          <tr><td class="code">F</td><td>Jako typ A + smíšené frekvence (do cca 1 kHz)</td><td>Obvody s jednofázovými frekvenčními měniči (např. pohony praček/myček s měničem, klimatizace)</td></tr>
+          <tr><td class="code">B</td><td>Jako typ A/F + čisté stejnosměrné poruchové proudy</td><td>Třífázové frekvenční měniče, nabíjecí stanice elektromobilů (EVSE), fotovoltaické systémy – vyžaduje se, kde mohou vznikat hladké DC poruchové proudy, které typ A/AC nemusí detekovat</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Jmenovitý reziduální vypínací proud I<sub>Δn</sub> typicky:</p>
+    <ul>
+      <li><strong>30 mA</strong> – ochrana osob (doplňková ochrana), zásuvkové obvody, koupelny,</li>
+      <li><strong>100–300 mA</strong> – ochrana před požárem (např. hlavní domovní rozvod), selektivní RCD vyšší úrovně.</li>
+    </ul>
+
+    <h2>2.8 Kombinace jistič + chránič – RCBO</h2>
+    <p>V praxi se často používá buď samostatný jistič (LS/MCB) + samostatný proudový chránič (RCD) v jednom rozváděči, nebo kombinovaný přístroj <strong>RCBO</strong> (Residual Current Breaker with Overcurrent protection), který v jednom modulu integruje funkci jističe (nadproudová ochrana B/C/D) i proudového chrániče (RCD typu A/AC/F/B). RCBO šetří místo v rozváděči a umožňuje selektivní řešení po jednotlivých obvodech (porucha na jednom obvodu nevypne chránič společný pro více obvodů).</p>
+
+    <h2>2.9 Shrnutí pro praxi a zkoušku</h2>
+    <ul>
+      <li><strong>B</strong> – citlivé/světelné obvody, dlouhá vedení, nízký rázový proud (3–5×I<sub>n</sub>).</li>
+      <li><strong>C</strong> – univerzální volba pro zásuvkové obvody a běžné spotřebiče (5–10×I<sub>n</sub>).</li>
+      <li><strong>D</strong> – motory, transformátory, velké rázové proudy (10–20×I<sub>n</sub>).</li>
+      <li><strong>I<sub>1</sub> = 1,13×I<sub>n</sub></strong> (nevypínací), <strong>I<sub>2</sub> = 1,45×I<sub>n</sub></strong> (vypínací) – platí pro tepelnou (přetížovou) spoušť u všech charakteristik.</li>
+      <li><strong>I<sub>cn</sub></strong> – vypínací (zkratová) schopnost, musí být ≥ předpokládaný zkratový proud v místě instalace (typicky 6 nebo 10 kA).</li>
+      <li><strong>RCD typ A</strong> je dnes minimální standard pro nové obvody s elektronikou; typ B je nutný např. pro nabíjecí stanice EV a třífázové měniče.</li>
+    </ul>
+
+    <div class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://nizke-napeti.cz.abb.com/blog-vypinaci-charakteristika-jistice-jednoduse-a-19643" target="_blank" rel="noopener">Vypínací charakteristika jističe jednoduše – ABB blog (nizke-napeti.cz.abb.com)</a></li>
+        <li><a href="https://www.elektroprumysl.cz/elektroinstalace/nezname-vypinaci-charakteristiky-instalacnich-jisticu" target="_blank" rel="noopener">„Neznámé" vypínací charakteristiky instalačních jističů – ElektroPrůmysl.cz</a></li>
+        <li><a href="https://www.elektroprumysl.cz/elektroinstalace/proudove-chranice-typy-a-vyber" target="_blank" rel="noopener">Jak vybrat proudový chránič – typy AC, A, F, B – ElektroPrůmysl.cz</a></li>
+        <li><a href="https://www.oez.cz/" target="_blank" rel="noopener">Proudové chrániče a jejich typy – OEZ</a></li>
+        <li><a href="https://elektro.tzb-info.cz/" target="_blank" rel="noopener">Selektivita jištění – TZB-info</a></li>
+        <li>ČSN EN 60898-1 (Elektrická příslušenství – Jističe pro nadproudové jištění domovních a podobných instalací), ČSN EN 61009-1 (RCBO), ČSN EN 61008-1 (RCD)</li>
+      </ul>
+    </div>
+  </main>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div><a href="/reference/index.html">← Referenční tabulky</a></div>
+  </footer>
+</body>
+</html>

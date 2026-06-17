@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Vodiče – průřezy a zatížitelnost | Test NV194/2022</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/nav.js" defer></script>
+</head>
+<body>
+  <div id="refnav" class="refnav"></div>
+  <main class="card content">
+    <h1>1. Vodiče – průřezy a dovolená proudová zatížitelnost</h1>
+    <p class="lead">Dovolený (trvalý) proud vodiče I<sub>z</sub> závisí na materiálu vodiče, průřezu, druhu izolace, způsobu uložení, teplotě okolí a skupinovém uložení. Tabulkové hodnoty je nutné upravit korekčními činiteli a porovnat s jmenovitým proudem jištění I<sub>n</sub> a s dovoleným úbytkem napětí.</p>
+
+    <h2>1.1 Úvod – co všechno ovlivňuje dovolený proud vodiče</h2>
+    <p>Dovolený (trvalý) proud vodiče, označovaný v normách jako I<sub>z</sub>, je nejvyšší proud, který může daným vodičem protékat nepřetržitě, aniž by teplota jádra či izolace překročila dovolenou mez. U běžné PVC izolace je touto mezí teplota jádra <strong>70 °C</strong>, u modernějších izolací na bázi zesítěného polyetylenu (XLPE) nebo pryže EPR je to <strong>90 °C</strong>. Vyšší dovolená teplota znamená i vyšší dovolenou proudovou zatížitelnost při stejném průřezu – kabely s XLPE izolací (např. typ CYKYLo, N2XH) tak snesou o cca 15–20 % vyšší proud než ekvivalentní PVC kabel.</p>
+    <p>Na výslednou hodnotu I<sub>z</sub> má vliv celá řada faktorů, které se v praxi musí posuzovat společně:</p>
+    <ol>
+      <li><strong>Materiál vodiče</strong> – měď (Cu) má při stejném průřezu výrazně vyšší dovolenou zatížitelnost než hliník (Al), protože měď má nižší rezistivitu (cca 0,0175 Ω·mm²/m oproti cca 0,028 Ω·mm²/m u hliníku).</li>
+      <li><strong>Průřez vodiče</strong> – se zvětšujícím se průřezem roste plocha pro odvod tepla relativně pomaleji než objem, proto zatížitelnost neroste lineárně s průřezem.</li>
+      <li><strong>Druh a tloušťka izolace</strong> – určuje maximální dovolenou teplotu jádra a tepelný odpor izolace.</li>
+      <li><strong>Způsob uložení</strong> – zda je kabel uložen volně na vzduchu, v liště, zazděný v izolační stěně, v zemi, na žebřících apod. Tomu odpovídají tzv. referenční způsoby uložení A1 až G dle ČSN 33 2000-5-52.</li>
+      <li><strong>Počet zatížených (proud nesoucích) žil v kabelu</strong> – tabulky rozlišují kabely se 2 zatíženými žilami (jednofázový obvod) a se 3 zatíženými žilami (třífázový obvod), protože při třech žilách vedle sebe se vzájemně více zahřívají.</li>
+      <li><strong>Teplota okolí</strong> – referenční tabulky platí pro definovanou teplotu okolí (typicky 30 °C pro vzduch, 20 °C pro zem). Při vyšší teplotě okolí (např. v kotelně, na půdě v létě, v technické šachtě) se zatížitelnost snižuje korekčním činitelem.</li>
+      <li><strong>Skupinové uložení (vícenásobné obvody vedle sebe)</strong> – pokud je více kabelů svazkováno nebo uloženo blízko sebe, vzájemně se ohřívají a zatížitelnost každého z nich klesá.</li>
+      <li><strong>Měrný tepelný odpor půdy</strong> – u kabelů uložených v zemi (typicky přípojky AYKY/CYKY uložené v chráničce nebo přímo v půdě) hraje roli, jak dobře okolní zemina odvádí teplo.</li>
+    </ol>
+    <p>Pro praxi je důležité si uvědomit, že hodnoty v katalogových tabulkách jsou <em>referenční</em> – platí pro definované podmínky a v reálné instalaci je nutné je upravit korekčními činiteli (viz kapitola 1.6). Teprve takto upravená hodnota I<sub>z</sub> se porovnává s jmenovitým proudem jištění I<sub>n</sub>.</p>
+
+    <h2>1.2 Materiály vodičů – měď vs. hliník</h2>
+    <p><strong>Měď (Cu)</strong> je v bytových, komerčních i většině průmyslových instalacích standardním materiálem. Důvody:</p>
+    <ul>
+      <li>Vyšší elektrická vodivost umožňuje menší průřezy při stejném proudu.</li>
+      <li>Lepší mechanické vlastnosti (pružnost, pevnost v tahu, odolnost vůči únavě materiálu při ohybu) – důležité u svorkových spojů, kde se vodič často ohýbá a dotahuje.</li>
+      <li>Měď nepodléhá tak výrazně tzv. <em>creepu</em> (tečení materiálu pod tlakem svorky), takže měděné spoje si lépe udržují dotahovací moment v čase a nehrozí u nich tak často uvolnění a přehřívání spoje.</li>
+      <li>Měď méně podléhá povrchové oxidaci v té míře, která by významně zvyšovala přechodový odpor spoje (oxidická vrstva na hliníku je naopak elektricky nevodivá a musí se při montáži mechanicky odstraňovat nebo se používají speciální pasty a svorky).</li>
+    </ul>
+    <p><strong>Hliník (Al)</strong> se používá zejména:</p>
+    <ul>
+      <li>U venkovních vedení a domovních přípojek (kabely typu AYKY), kde hraje roli nižší hmotnost (cca třetinová oproti mědi při stejné vodivosti) a nižší cena za jednotku přenosové kapacity.</li>
+      <li>U větších průřezů v průmyslových rozvodech (od cca 16–25 mm² výše), kde úspora hmotnosti a cena hrají větší roli než u malých domovních obvodů.</li>
+      <li>V ČR je u koncových bytových a domovních rozvodů použití hliníkových vodičů malých průřezů (do 10 mm²) v praxi nežádoucí/vyloučené právě kvůli rizikům spojeným s creepem na svorkách jisticích a spínacích přístrojů, které jsou primárně konstruovány a certifikovány pro měď.</li>
+      <li>Pro stejný dovolený proud musí mít hliníkový vodič přibližně o 1,5–1,6× větší průřez než měděný (např. tam, kde by Cu stačilo 10 mm², je u Al obvykle potřeba 16 mm²).</li>
+    </ul>
+    <p>Z hlediska zkouškové přípravy je důležité umět rozpoznat, že <strong>tabulky proudové zatížitelnosti existují samostatně pro Cu a samostatně pro Al</strong> a že se nesmí zaměňovat.</p>
+
+    <h2>1.3 Typy kabelů a vodičů používaných v elektroinstalacích</h2>
+    <p>V běžné praxi se v ČR setkáváme zejména s těmito typy:</p>
+    <ul>
+      <li><strong>CYKY</strong> – měděný kabel s PVC izolací jednotlivých žil a společným PVC plášťem. Je to nejběžnější kabel pro pevné uložení v bytových a komerčních instalacích (pod omítkou, v trubkách, na povrchu upevněný příchytkami). Rozlišují se varianty:
+        <ul>
+          <li><strong>CYKY-J</strong> – „J" značí žluto-zeleně izolovaný ochranný vodič (PE) navíc k fázovým a nulovým vodičům; používá se pro silové obvody vyžadující ochranný vodič (zásuvkové okruhy, světelné okruhy s PE).</li>
+          <li><strong>CYKY-O</strong> – bez PE vodiče (jen pracovní vodiče); použití je omezené na okruhy, kde se ochranný vodič nevyžaduje nebo je veden samostatně.</li>
+          <li><strong>CYKYLo</strong> – kabel s izolací na bázi bezhalogenových/zesítěných materiálů s vyšší dovolenou teplotou jádra (90 °C) a lepším chováním při požáru (nízká kouřivost, bez halogenů – LSOH).</li>
+        </ul>
+      </li>
+      <li><strong>CYA (značeno také H07V-K)</strong> – jednožilový vodič s ohebným (licnovým) jádrem a PVC izolací, určený pro uložení do trubek, lišt, kabelových kanálů nebo pro vnitřní zapojení rozváděčů. Díky ohebnému jádru se snadno tvaruje, ale nesmí se používat volně na povrchu bez mechanické ochrany.</li>
+      <li><strong>AYKY</strong> – hliníková obdoba kabelu CYKY, používaná zejména pro domovní přípojky a venkovní silové rozvody větších průřezů.</li>
+      <li><strong>CYSY</strong> – ohebný kabel s pryžovou nebo měkčenou PVC izolací (kulatý plášť), vhodný pro pohyblivé přívody spotřebičů, prodlužovací šňůry, připojení strojů, kde se vyžaduje vyšší flexibilita než u CYKY.</li>
+      <li><strong>CGSG</strong> – pryžový kabel s odolným pláštěm pro venkovní a staveništní použití, odolný proti oděru, nárazu, vodě a UV záření; typicky se používá pro staveništní rozváděče, dočasné přípoje, zahradní techniku.</li>
+      <li><strong>Silikonové vodiče (např. SIHF, SIAF)</strong> – izolace na bázi silikonového kaučuku snáší trvalé teploty 150–180 °C i krátkodobé extrémy; používají se pro připojení topných těles, saun, infrazářičů, svítidel v blízkosti zdrojů tepla.</li>
+      <li><strong>H05V-K / H07V-K</strong> – evropské harmonizované značení jednožilových vodičů (číslo 05 = 300/500 V, 07 = 450/750 V jmenovité napětí izolace), které se v praxi často kryje s českým označením CY (0,5 mm² a méně) a CYA.</li>
+    </ul>
+    <p>Při výběru kabelu je tedy nutné posoudit nejen průřez a proud, ale i prostředí (vlhkost, mechanické namáhání, teplota, požadavky na požární odolnost) a způsob uložení, který určuje, podle které referenční metody se má zatížitelnost počítat.</p>
+
+    <h2>1.4 Způsoby uložení – referenční metody dle ČSN 33 2000-5-52</h2>
+    <p>Norma ČSN 33 2000-5-52 (Elektrické instalace nízkého napětí – Výběr a stavba elektrických zařízení – Elektrická vedení) definuje tzv. referenční způsoby instalace, které se značí písmeny A až G a podle kterých se volí příslušná tabulka proudové zatížitelnosti:</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Metoda</th><th>Popis uložení</th><th>Typický příklad</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">A1</td><td>Izolované vodiče v tepelně izolující trubce zabudované v tepelně izolující stěně</td><td>CYA v plastové trubce v sádrokartonu/zateplené stěně</td></tr>
+          <tr><td class="code">A2</td><td>Vícežilový kabel v tepelně izolující trubce v tepelně izolující stěně</td><td>CYKY v trubce v zateplené konstrukci</td></tr>
+          <tr><td class="code">B1</td><td>Izolované vodiče v trubce na/ve zdi (bez tepelné izolace)</td><td>CYA v lištách/trubkách na zdivu</td></tr>
+          <tr><td class="code">B2</td><td>Vícežilový kabel v trubce na/ve zdi</td><td>CYKY v trubce pod omítkou</td></tr>
+          <tr><td class="code">C</td><td>Kabel uložený přímo na stěně nebo stropu (na povrchu)</td><td>CYKY připevněný příchytkami na zdi</td></tr>
+          <tr><td class="code">D1/D2</td><td>Kabel uložený v zemi (v chráničce nebo přímo v půdě)</td><td>AYKY/CYKY přípojka v zemi</td></tr>
+          <tr><td class="code">E</td><td>Vícežilový kabel volně na vzduchu (na žebříku, ve volném prostoru, ve svazku)</td><td>CYKY na kabelovém žebříku</td></tr>
+          <tr><td class="code">F</td><td>Jednožilové vodiče na vzduchu vedle sebe s odstupem (volný rozptyl tepla)</td><td>jednožilové kabely na izolátorech/držácích</td></tr>
+          <tr><td class="code">G</td><td>Jednožilové vodiče na vzduchu s odstupem mezi fázemi (větší než průměr vodiče)</td><td>venkovní jednožilová vedení s odstupem</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Obecně platí, že čím lépe může vodič odvádět vznikající teplo do okolí (volný vzduch kolem celého kabelu), tím vyšší je jeho dovolená zatížitelnost. Naopak uložení v tepelně izolující konstrukci (metoda A1/A2) je z hlediska odvodu tepla nejhorší, a proto má pro stejný průřez nejnižší I<sub>z</sub>.</p>
+
+    <h2>1.5 Tabulky dovolené proudové zatížitelnosti</h2>
+    <p>Následující tabulka uvádí orientační hodnoty dovoleného proudu I<sub>z</sub> pro <strong>měděné (Cu) vodiče s PVC izolací (70 °C)</strong>, se <strong>2 zatíženými žilami</strong> (jednofázový obvod), při referenční teplotě okolí 30 °C (vzduch) resp. 20 °C (zem):</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Průřez (mm²)</th><th>A1 (v izolaci, trubka ve zdi) – A</th><th>B2 (trubka pod omítkou) – A</th><th>C (na povrchu) – A</th><th>E (volně na vzduchu/žebřík) – A</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">1,5</td><td>14,5</td><td>16,5</td><td>17,5</td><td>19,5</td></tr>
+          <tr><td class="code">2,5</td><td>19,5</td><td>23</td><td>24</td><td>27</td></tr>
+          <tr><td class="code">4</td><td>26</td><td>30</td><td>32</td><td>36</td></tr>
+          <tr><td class="code">6</td><td>34</td><td>38</td><td>41</td><td>46</td></tr>
+          <tr><td class="code">10</td><td>46</td><td>52</td><td>57</td><td>63</td></tr>
+          <tr><td class="code">16</td><td>61</td><td>69</td><td>76</td><td>85</td></tr>
+          <tr><td class="code">25</td><td>80</td><td>90</td><td>96</td><td>110</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Pro <strong>třífázové obvody (3 zatížené žíly)</strong> se hodnoty oproti tabulce pro 2 žíly snižují přibližně o 10–15 % (norma uvádí samostatné tabulky pro 2 a pro 3 zatížené žíly v kabelu).</p>
+    <p>Pro <strong>hliníkové (Al) vodiče</strong> je nutné použít samostatnou tabulku – hodnoty jsou orientačně o 21–24 % nižší než u mědi při stejném průřezu (např. Al 16 mm² odpovídá zhruba zatížitelnosti Cu 10 mm²).</p>
+    <p>Pro vodiče s <strong>izolací XLPE/90 °C</strong> se hodnoty zvyšují oproti PVC/70 °C přibližně o 15–20 %.</p>
+
+    <h2>1.6 Korekční faktory</h2>
+    <p>Hodnoty z předchozích tabulek platí pro <strong>referenční podmínky</strong> (teplota okolí 30 °C pro vzduch / 20 °C pro zem, jediný obvod, standardní měrný odpor půdy). V reálné instalaci se musí I<sub>z</sub> z tabulky vynásobit příslušnými korekčními (přepočítacími) činiteli <strong>k</strong>, které jsou vždy menší nebo rovny 1 (snižují zatížitelnost), případně mohou být i vyšší než 1 (např. nižší teplota okolí než referenční).</p>
+
+    <p><strong>a) Korekční činitel na teplotu okolí (pro PVC izolaci, referenční 30 °C – vzduch):</strong></p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Teplota okolí</th><th>Korekční činitel k1</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">20 °C</td><td>1,12</td></tr>
+          <tr><td class="code">25 °C</td><td>1,06</td></tr>
+          <tr><td class="code">30 °C</td><td>1,00</td></tr>
+          <tr><td class="code">35 °C</td><td>0,94</td></tr>
+          <tr><td class="code">40 °C</td><td>0,87</td></tr>
+          <tr><td class="code">45 °C</td><td>0,79</td></tr>
+          <tr><td class="code">50 °C</td><td>0,71</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>b) Korekční činitel na skupinové uložení (počet obvodů/kabelů vedle sebe, dotýkajících se, jedna vrstva):</strong></p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Počet obvodů vedle sebe</th><th>Korekční činitel k2</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">1</td><td>1,00</td></tr>
+          <tr><td class="code">2</td><td>0,80</td></tr>
+          <tr><td class="code">3</td><td>0,70</td></tr>
+          <tr><td class="code">4</td><td>0,65</td></tr>
+          <tr><td class="code">5</td><td>0,60</td></tr>
+          <tr><td class="code">6</td><td>0,57</td></tr>
+          <tr><td class="code">7–9</td><td>0,54</td></tr>
+          <tr><td class="code">10–12</td><td>0,50</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>c) Korekční činitel pro uložení v zemi – měrný tepelný odpor půdy</strong> (referenční hodnota 2,5 K·m/W, vlhká hlína):</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Měrný odpor půdy (K·m/W)</th><th>Korekční činitel k3</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">1,0 (mokrá půda)</td><td>1,18</td></tr>
+          <tr><td class="code">1,5</td><td>1,10</td></tr>
+          <tr><td class="code">2,0</td><td>1,05</td></tr>
+          <tr><td class="code">2,5 (referenční)</td><td>1,00</td></tr>
+          <tr><td class="code">3,0</td><td>0,96</td></tr>
+          <tr><td class="code">Suchá písčitá půda (vyšší)</td><td>0,85–0,90</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Výsledná dovolená zatížitelnost v reálných podmínkách se pak stanoví jako:</p>
+    <p><strong>I<sub>z, reálné</sub> = I<sub>z, tabulkové</sub> × k1 × k2 × (k3 pro uložení v zemi)</strong></p>
+    <p>Tento výsledek se následně porovná s jmenovitým proudem zvoleného jištění (viz dále).</p>
+
+    <h2>1.7 Koordinace jištění s vodičem – základní podmínky</h2>
+    <p>Aby byl vodič chráněn jisticím prvkem (jističem nebo pojistkou) proti přetížení, musí podle ČSN 33 2000-4-43 platit dvě podmínky:</p>
+    <p><strong>1) I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub></strong></p>
+    <p>kde:</p>
+    <ul>
+      <li>I<sub>B</sub> – výpočtový (provozní) proud obvodu, tedy proud, který obvodem skutečně poteče při běžném provozu,</li>
+      <li>I<sub>n</sub> – jmenovitý proud jisticího přístroje (např. 16 A jistič),</li>
+      <li>I<sub>z</sub> – dovolená (po korekcích upravená) proudová zatížitelnost vodiče.</li>
+    </ul>
+    <p>Tato podmínka zajišťuje, že jistič je dostatečně velký, aby nezbytečně nevypínal při běžném provozním zatížení, ale zároveň není větší než to, co vodič bezpečně snese.</p>
+    <p><strong>2) I<sub>2</sub> ≤ 1,45 × I<sub>z</sub></strong></p>
+    <p>kde I<sub>2</sub> je proud, který způsobí vybavení ochranného přístroje ve stanoveném čase (tzv. smluvený vypínací proud – u jističů dle ČSN EN 60898-1 je to 1,45 × I<sub>n</sub>).</p>
+    <p>V praxi se u jističů, které splňují ČSN EN 60898-1 (I<sub>2</sub> = 1,45 × I<sub>n</sub>), druhá podmínka <strong>automaticky splní</strong>, pokud platí první podmínka I<sub>n</sub> ≤ I<sub>z</sub> – proto se v běžných projektech kontroluje hlavně podmínka 1.</p>
+
+    <h2>1.8 Úbytek napětí na vedení</h2>
+    <p>Kromě tepelného hlediska (zatížitelnost) je nutné u delších vedení posoudit i <strong>úbytek napětí</strong>, protože nadměrný úbytek napětí může způsobit nesprávnou funkci spotřebičů (např. nedostatečný rozběhový moment motoru, nesprávné svícení LED zdrojů, chybové hlášení elektroniky).</p>
+    <p><strong>Vzorce pro výpočet úbytku napětí (ΔU):</strong></p>
+    <ul>
+      <li>Stejnosměrný (DC) obvod nebo jednofázový AC s čistě odporovou zátěží (zjednodušeně):<br>
+        ΔU = 2 × I × L × R' / 1000 [V], kde R' je rezistivita vodiče v Ω/km, L délka v metrech, I proud v A (faktor 2 = tam a zpět).</li>
+      <li>Jednofázový AC obvod (přesněji, s uvážením účiníku cos φ a reaktance X):<br>
+        ΔU = 2 × I × L × (R' × cos φ + X' × sin φ) / 1000 [V]</li>
+      <li>Třífázový AC obvod:<br>
+        ΔU = √3 × I × L × (R' × cos φ + X' × sin φ) / 1000 [V]</li>
+    </ul>
+    <p>Procentuální úbytek napětí: <strong>ΔU % = (ΔU / U<sub>n</sub>) × 100</strong></p>
+    <p><strong>Dovolené hodnoty úbytku napětí</strong> (orientačně, dle ČSN 33 2000-5-52 příloha a běžné projekční praxe pro instalace napájené přímo z distribuční sítě nn):</p>
+    <div class="ip-wrapper">
+      <table class="ip-table">
+        <thead>
+          <tr><th>Typ obvodu</th><th>Dovolený úbytek napětí</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Osvětlení</td><td>3 %</td></tr>
+          <tr><td>Ostatní spotřebiče (zásuvky, motory)</td><td>5 %</td></tr>
+          <tr><td>Instalace napájené z vlastního transformátoru vn/nn</td><td>až 8 % (5 % světlo + 3 % rezerva na transformátor)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Pokud vypočtený úbytek napětí překročí tyto hodnoty, je nutné zvolit vodič o větší průřez, než by odpovídalo pouze tepelné zatížitelnosti – u dlouhých vedení (např. přípojky k odlehlým objektům, prodloužené napájení dílen) bývá právě úbytek napětí limitujícím kritériem, nikoli zatížitelnost.</p>
+
+    <h2>1.9 Praktický postup dimenzování vodiče – shrnutí</h2>
+    <ol>
+      <li><strong>Stanovit výpočtový proud I<sub>B</sub></strong> obvodu (na základě příkonu spotřebičů, soudobosti, případně rozběhových proudů motorů).</li>
+      <li><strong>Zvolit jmenovitý proud jištění I<sub>n</sub> ≥ I<sub>B</sub></strong> (a zároveň s ohledem na vypínací charakteristiku – viz téma 2).</li>
+      <li><strong>Z tabulek zvolit průřez a typ vodiče</strong> tak, aby tabulková hodnota I<sub>z</sub> po vynásobení korekčními činiteli (teplota, skupinové uložení, půda) byla ≥ I<sub>n</sub>.</li>
+      <li><strong>Ověřit podmínku I<sub>2</sub> ≤ 1,45 × I<sub>z</sub></strong> (u certifikovaných jističů dle EN 60898-1 obvykle automaticky splněno).</li>
+      <li><strong>Vypočítat úbytek napětí</strong> pro danou délku vedení a porovnat s dovolenou hodnotou (3 %/5 %); pokud nevyhovuje, zvýšit průřez.</li>
+      <li><strong>Ověřit podmínky samočinného odpojení od zdroje</strong> při poruše (dostatečně nízká impedance poruchové smyčky, aby jistič/RCD vypnul v požadovaném čase – souvisí s tématem 6).</li>
+      <li><strong>Zohlednit mechanické a environmentální požadavky</strong> – typ kabelu (CYKY, CYA, CYSY...), odolnost proti vlhku, UV, mechanickému poškození, požární klasifikace.</li>
+    </ol>
+
+    <div class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://www.energie123.cz/hodnoty-dovolenych-proudu-pro-vodice-kabely-proudova-zatizitelnost/" target="_blank" rel="noopener">Hodnoty dovolených proudů pro vodiče (kabely) – proudová zatížitelnost – energie123.cz</a></li>
+        <li><a href="https://publi.cz/books/260/03.html" target="_blank" rel="noopener">Dimenzování vodičů a kabelů – publi.cz (učební text)</a></li>
+        <li><a href="https://elektro.tzb-info.cz/elektroinstalace/8478-dimenzovani-vodicu-a-kabelu-podle-csn-33-2000-5-523" target="_blank" rel="noopener">Dimenzování vedení – výpočet úbytku napětí – TZB-info</a></li>
+        <li><a href="https://www.elektroprumysl.cz/elektroinstalace" target="_blank" rel="noopener">Referenční způsoby instalace dle ČSN 33 2000-5-52 – ElektroPrůmysl.cz</a></li>
+        <li><a href="https://elektrika.cz/" target="_blank" rel="noopener">Kabely CYKY, CYA, AYKY – přehled typů a použití – Elektrika.cz</a></li>
+        <li>ČSN 33 2000-5-52 ed. 2, ČSN 33 2000-5-523 ed. 2, ČSN 33 2000-4-43 (placené normy – uvedené hodnoty jsou orientační, doporučeno ověřit přesné tabulky v aktuálním znění norem před produkčním nasazením)</li>
+      </ul>
+    </div>
+  </main>
+  <footer class="app-footer">
+    <div>© 2026 <span id="footerMail" class="mail-ph" data-u="a291YmlpYw==" data-d="Z21haWwuY29t">[kontakt]</span></div>
+    <div><a href="/reference/index.html">← Referenční tabulky</a></div>
+  </footer>
+</body>
+</html>
