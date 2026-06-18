@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hlídače teploty | Silnoproudé rozvody</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Hlídače teploty</nav>
+
+<h1>7. Hlídače teploty</h1>
+
+<p class="lead">Teplotu nelze měřit přímo – měří se vždy přes nějakou veličinu, která na teplotě závisí (roztažnost, odpor, termoelektrické napětí). Tato kapitola shrnuje principy měření teploty, druhy snímačů a základy regulace teploty pomocí regulátorů.</p>
+
+<h2>7.1 Teplota</h2>
+<p>Teplota je charakteristika tepelného stavu hmoty a <strong>základní fyzikální veličina soustavy SI</strong>. Jednotkou je <strong>kelvin (K)</strong>, vedlejší jednotkou stupeň Celsia (°C). Nejnižší možnou teplotou je absolutní nula. Základem moderního přesného měření je závislost elektrických jevů na teplotě.</p>
+
+<h2>7.2 Měření teploty</h2>
+<p>K určení teploty se využívá závislosti vhodné fyzikální veličiny na teplotě – to umožní převést měření teploty na měření jiné veličiny. Teplotně závislé jsou např. délkové rozměry, objem, tlak, elektrický odpor vodičů/polovodičů a termoelektrické napětí.</p>
+<div class="note"><strong>Teploměr vs. snímač:</strong> teploměr zobrazuje teplotu přímo v místě měření. <strong>Snímač teploty</strong> je čidlo pro dálkový přenos dat (analogových i číslicových) a slouží jako vstup pro následnou regulaci.</div>
+
+<h3>Druhy teploměrů podle principu</h3>
+<table>
+  <thead><tr><th>Typ</th><th>Princip</th><th>Poznámka</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Kapalinový</strong></td><td>Teplotní roztažnost kapaliny (rtuť, líh).</td><td>Klasický skleněný teploměr.</td></tr>
+    <tr><td><strong>Bimetalový</strong></td><td>Pásek ze dvou kovů s různou roztažností se ohýbá.</td><td>Pomalá reakce na změnu.</td></tr>
+    <tr><td><strong>Plynový</strong></td><td>Závislost tlaku (nebo objemu) plynu na teplotě.</td><td>—</td></tr>
+    <tr><td><strong>Odporový</strong></td><td>Závislost el. odporu vodiče/polovodiče na teplotě.</td><td>Polovodičový snímač = <strong>termistor</strong>.</td></tr>
+    <tr><td><strong>Termoelektrický</strong></td><td>Termoelektrický jev – napětí na spoji dvou kovů.</td><td>Termočlánek.</td></tr>
+    <tr><td><strong>Radiační</strong></td><td>Vyzařování těles o vysoké teplotě.</td><td>Infrateploměr, bezkontaktní.</td></tr>
+  </tbody>
+  <caption>Tab. 7.1 — Druhy teploměrů a snímačů podle principu.</caption>
+</table>
+<p><strong>Speciální:</strong> kontaktní teploměr sepne kontakt po dosažení nastavené teploty (termostaty v regulaci a automatizaci); maximo-minimální teploměr si pamatuje nejvyšší a nejnižší naměřenou hodnotu.</p>
+
+<h2>7.3 Regulátor teploty</h2>
+<p>Regulátor udržuje regulovaný systém v požadovaném stavu pomocí <strong>záporné zpětné vazby</strong>. Vstupem je odchylka od žádané hodnoty, regulátor řídí systém s cílem tuto odchylku minimalizovat. Základní veličiny:</p>
+<table>
+  <thead><tr><th>Značka</th><th>Veličina</th><th>Význam</th></tr></thead>
+  <tbody>
+    <tr><td><strong>w</strong></td><td>řídicí</td><td>nastavuje požadovanou velikost regulované veličiny</td></tr>
+    <tr><td><strong>x</strong></td><td>regulovaná</td><td>její velikost se regulací udržuje</td></tr>
+    <tr><td><strong>e</strong></td><td>regulační odchylka</td><td>rozdíl mezi požadovanou a skutečnou hodnotou</td></tr>
+    <tr><td><strong>y</strong></td><td>akční</td><td>výstup regulátoru do regulované soustavy</td></tr>
+  </tbody>
+  <caption>Tab. 7.2 — Veličiny regulačního obvodu.</caption>
+</table>
+
+<h3>Typy regulátorů (dynamika)</h3>
+<ul>
+  <li><strong>P (proporcionální)</strong> – pracuje jako zesilovač regulační odchylky; jednoduchý, ale zůstává trvalá odchylka.</li>
+  <li><strong>PI (proporcionálně-integrační)</strong> – odstraní trvalou odchylku, dobré dynamické vlastnosti.</li>
+  <li><strong>PID (proporcionálně-integračně-derivační)</strong> – nejlepší dynamika; derivační složka reaguje na rychlost změny. Dnes obvykle číslicový PID regulátor.</li>
+</ul>
+
+<h3>Dělení regulovaných soustav</h3>
+<ul>
+  <li><strong>Spojitá regulace</strong> – data se mění plynule; vysoká kvalita regulace, ale vyšší cena.</li>
+  <li><strong>Nespojitá regulace</strong> – akční zásah po skocích (např. dvoupolohová – termostat zapne/vypne); jednodušší a levnější.</li>
+</ul>
+
+<div class="quiz">
+  <h2>Opakovací otázky</h2>
+  <details><summary>Jaký je rozdíl mezi teploměrem a snímačem teploty?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Teploměr měří a <strong>zobrazuje teplotu přímo v místě měření</strong>. Snímač teploty je <strong>čidlo pro dálkový přenos</strong> analogových nebo číslicových dat na zobrazovač a slouží jako vstup pro následnou regulaci.</p></div>
+  </details>
+  <details><summary>Na jakém principu pracuje termistor?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Termistor je <strong>odporový snímač</strong> – využívá závislosti elektrického odporu polovodiče na teplotě. Změnou teploty se mění jeho odpor, který se vyhodnotí pro zjištění teploty a následnou regulaci.</p></div>
+  </details>
+  <details><summary>Co znamenají veličiny w, x, e a y v regulačním obvodu?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p><strong>w</strong> = řídicí veličina (žádaná hodnota), <strong>x</strong> = regulovaná veličina (skutečná hodnota), <strong>e</strong> = regulační odchylka (w − x), <strong>y</strong> = akční veličina (výstup regulátoru do soustavy).</p></div>
+  </details>
+</div>
+
+<div class="pager">
+  <a class="prev" href="rele-stykace.html">← 6. Relé a stykače</a>
+  <a class="next" href="kladeni-vedeni.html">8. Kladení vedení →</a>
+</div>
+<a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+<footer>
+Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění příslušných ČSN.
+</footer>
+</body>
+</html>

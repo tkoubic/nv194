@@ -21,9 +21,11 @@
     var homeHref = '/index.html';
     var hubHref = '/reference/index.html';
 
+    var temataHref = '/temata/index.html';
     var links = '';
     links += '<a href="' + homeHref + '" class="' + (isActive(path, homeHref) || path === '/' ? 'active' : '') + '">Test NV194</a>';
     links += '<a href="' + hubHref + '" class="' + (isActive(path, hubHref) ? 'active' : '') + '">Referenční tabulky</a>';
+    links += '<a href="' + temataHref + '" class="' + (path.startsWith('/temata/') ? 'active' : '') + '">Silnoproudé rozvody</a>';
     for (var i = 0; i < REF_PAGES.length; i++) {
       var p = REF_PAGES[i];
       links += '<a href="' + p.href + '" class="' + (isActive(path, p.href) ? 'active' : '') + '">' + p.label + '</a>';

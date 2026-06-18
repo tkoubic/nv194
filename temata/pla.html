@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programovatelné automaty (PLA) | Silnoproudé rozvody</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<link rel="stylesheet" href="styles.css">
+<script src="/assets/nav.js" defer></script>
+</head>
+<body>
+<div id="refnav" class="refnav"></div>
+<div class="wrap">
+<nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Programovatelné automaty (PLA)</nav>
+
+<h1>16. Programovatelné logické automaty – PLA</h1>
+
+<p class="lead">Programovatelný automat (PLC/PLA) nahradil rozsáhlá reléová zapojení jediným zařízením, jehož funkci určuje program – a ten lze kdykoli změnit. Tím se stal základem moderní průmyslové automatizace. Kapitola sleduje vývoj řízení, popisuje vlastnosti, rozdělení a programovací jazyky PLA.</p>
+
+<h2>16.1 Vývoj řízení výrobních procesů</h2>
+<table>
+  <thead><tr><th>Etapa</th><th>Charakteristika</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ruční řízení</strong></td><td>Veškerou zodpovědnost nesla obsluha – lidský činitel je nejslabší článek (únava, chyby).</td></tr>
+    <tr><td><strong>Reléová logika</strong></td><td>První automatizace pomocí relé a stykačů v sériových/paralelních kombinacích („zlatý věk" 20.–70. let).</td></tr>
+    <tr><td><strong>Pevně zapojená elektronická logika</strong></td><td>Logické členy (diodové, pak TTL s tranzistory). Rychlá, ale <strong>nelze změnit funkci</strong> bez přepojení – nevhodné pro kusovou výrobu.</td></tr>
+    <tr><td><strong>Programovatelný automat (PLC)</strong></td><td>Funkci určuje <strong>program</strong>, který lze snadno změnit. První MODICON (1969), v Evropě Siemens Simatic.</td></tr>
+    <tr><td><strong>Řízení PC</strong></td><td>Souběžný směr – řízení osobním počítačem.</td></tr>
+  </tbody>
+  <caption>Tab. 16.1 — Vývoj způsobů řízení výrobních procesů.</caption>
+</table>
+<div class="note">Zkratka <strong>PLC</strong> = Programmable Logic Controller. Název <strong>MODICON</strong> vznikl z <em>MOdular DIgital CONtrol</em> – první PLC předvedené v březnu 1969.</div>
+
+<h2>16.2 Typické vlastnosti PLA</h2>
+<ul>
+  <li><strong>Stavebnicové provedení</strong> – sestava se skládá z modulů podle potřeby.</li>
+  <li><strong>Snadné programování</strong> – grafické editory zpřístupnily PLA širokému okruhu elektrotechniků.</li>
+  <li><strong>Nízká cena sestavy</strong> – malý kompakt (6 vstupů, 4 výstupy) lze pořídit již za nízké tisíce Kč.</li>
+  <li><strong>Diagnostika</strong> – instrukce neustále testují procesor, paměti, sběrnici a moduly; chyby se zapisují.</li>
+  <li><strong>Rychlost</strong> – program běží v cyklu (skenu); doba bitové instrukce klesla na zlomky µs.</li>
+  <li><strong>Komunikace</strong> – připojení k ethernetu, internetu i mobilním sítím (přímo nebo komunikačními moduly).</li>
+</ul>
+
+<h2>16.3 Rozdělení PLA</h2>
+<p>Podle výkonu a konstrukce se PLA dělí do tří skupin:</p>
+<table>
+  <thead><tr><th>Typ</th><th>Charakteristika</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Kompaktní</strong></td><td>Mikrosystémy pro nejnižší výkon – v jednom modulu jsou CPU, paměť, vstupy/výstupy i komunikace. Modul pracuje samostatně, lze ho rozšířit přídavnými moduly.</td></tr>
+    <tr><td><strong>Modulární</strong></td><td>Pro střední výkon. Skládají se z modulů propojených konektory; žádný nepracuje sám. Nejmenší sestava = <strong>modul zdroje + modul procesoru (CPU)</strong>.</td></tr>
+    <tr><td><strong>Rackové</strong></td><td>Pro nejvyšší výkon – moduly se zasouvají do rámu (racku) se sběrnicí.</td></tr>
+  </tbody>
+  <caption>Tab. 16.2 — Rozdělení programovatelných automatů.</caption>
+</table>
+
+<h2>16.4 Programovací jazyky (editory)</h2>
+<table>
+  <thead><tr><th>Editor</th><th>Zkratka</th><th>Pro koho / vlastnosti</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Jazyk mnemokódů</strong></td><td>STL / IL</td><td>Textový, blízký klasickým programovacím jazykům; složité logické sekvence se píší obtížně.</td></tr>
+    <tr><td><strong>Jazyk kontaktních schémat</strong></td><td>LD / LAD<br>(ladder, „žebřík")</td><td>Připomíná reléové schéma – dávají mu přednost <strong>elektrotechnici</strong>; pohodlné monitorování logiky.</td></tr>
+    <tr><td><strong>Jazyk funkčních bloků</strong></td><td>FBD</td><td>Používá bloky instrukcí definované normami DIN a IEC.</td></tr>
+  </tbody>
+  <caption>Tab. 16.3 — Programovací jazyky PLA.</caption>
+</table>
+<p>Převody mezi editory jsou možné (ne vždy úplné). Vyspělá prostředí umožňují psát program ve více editorech zároveň a obsahují i vyšší jazyky podobné Pascalu. Program je vázán na konkrétní zařízení – nelze ho přenést mezi PLA různých výrobců.</p>
+<div class="note"><strong>Příklad:</strong> Siemens <strong>S7-224</strong> (DC/DC/DC) má 14 vstupních a 10 výstupních bodů, lze ho rozšířit až 7 moduly; programuje se v prostředí <strong>STEP 7-Micro/WIN</strong>.</div>
+
+<div class="quiz">
+  <h2>Opakovací otázky</h2>
+  <details><summary>Jaká je hlavní výhoda PLA oproti pevně zapojené elektronické logice?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Funkci PLA určuje <strong>program, který lze kdykoli snadno změnit</strong>, aniž by se muselo cokoli přepojovat. Pevně zapojená logika je sice rychlá, ale její funkci nelze změnit bez fyzického přepojení – proto je nevhodná pro malosériovou a kusovou výrobu.</p></div>
+  </details>
+  <details><summary>Co musí obsahovat nejmenší sestava modulárního PLA?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Nejméně <strong>modul zdroje a modul procesoru (CPU)</strong>. Moduly modulárního PLA jsou propojeny konektory a žádný z nich nedokáže pracovat samostatně (na rozdíl od kompaktního PLA).</p></div>
+  </details>
+  <details><summary>Který programovací jazyk preferují elektrotechnici a proč?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Jazyk <strong>kontaktních schémat (LD/LAD, „žebříkový diagram")</strong>, protože vychází z reléových schémat, která elektrotechnici dobře znají, a umožňuje pohodlné monitorování logických sekvencí.</p></div>
+  </details>
+</div>
+
+<div class="pager">
+  <a class="prev" href="druhy-prostredi.html">← 15. Druhy prostředí</a>
+  <a class="next" href="index.html">Přehled kapitol →</a>
+</div>
+<a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+<footer>
+Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění příslušných ČSN.
+</footer>
+</body>
+</html>

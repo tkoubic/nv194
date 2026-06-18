@@ -1,0 +1,208 @@
+@import url('/assets/styles.css');
+
+/* bridge: var(--muted) used in some inline styles in chapter files */
+:root { --muted: #94a3b8; }
+
+/* === WRAP: card container for all temata pages === */
+.wrap {
+  border: 1px solid #2a3354;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background: rgba(20, 25, 45, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  margin-bottom: 2rem;
+}
+
+/* === BREADCRUMB === */
+nav.crumbs {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+}
+nav.crumbs a { color: #c7d2fe; text-decoration: none; }
+nav.crumbs a:hover { color: #e0e7ff; text-decoration: underline; }
+
+/* === TYPOGRAPHY inside .wrap === */
+.wrap .intro { color: #cbd5e1; margin: 0.25rem 0 1.25rem; font-size: 1.05rem; }
+.wrap .lead  { color: #cbd5e1; margin: 0.25rem 0 1.25rem; }
+.wrap .disclaimer {
+  border: 1px solid #92400e; border-radius: 8px;
+  background: rgba(245, 158, 11, 0.10);
+  padding: 0.75rem 1rem; margin: 1rem 0 1.5rem;
+  font-size: 0.88rem; color: #fde68a;
+}
+.wrap p { line-height: 1.65; margin: 0.6rem 0; color: #e5e7eb; }
+.wrap ul, .wrap ol { line-height: 1.6; margin: 0.5rem 0 0.5rem 1.3rem; padding: 0; color: #e5e7eb; }
+.wrap li  { margin: 0.25rem 0; }
+.wrap strong { color: #f1f5f9; }
+.wrap a  { color: #93c5fd; text-decoration: underline; }
+.wrap a:hover { color: #bfdbfe; }
+
+.wrap h2 {
+  font-size: 1.15rem; color: #f1f5f9;
+  margin: 1.75rem 0 0.6rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid #2a3354;
+}
+.wrap h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0.5rem; }
+.wrap h3 { font-size: 1rem; color: #c7d2fe; margin: 1.1rem 0 0.4rem; }
+
+/* === TABLES === */
+.wrap table {
+  width: 100%; border-collapse: collapse; font-size: 0.93rem;
+  margin: 0.75rem 0 0.25rem;
+  display: block; overflow-x: auto;
+}
+.wrap th, .wrap td {
+  border: 1px solid #2a3354; padding: 0.5rem 0.65rem;
+  text-align: left; vertical-align: top;
+}
+.wrap thead th {
+  background: rgba(99, 102, 241, 0.22); color: #f1f5f9; font-weight: 600;
+}
+.wrap tbody tr:nth-child(odd)  { background: rgba(255, 255, 255, 0.025); }
+.wrap tbody tr:nth-child(even) { background: rgba(255, 255, 255, 0.05); }
+.wrap caption {
+  caption-side: bottom; font-size: 0.8rem; color: #94a3b8;
+  padding: 0.35rem 0.2rem; text-align: left; margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* === NOTE & WARN BOXES === */
+.note {
+  border: 1px solid #3730a5; border-radius: 8px;
+  background: rgba(99, 102, 241, 0.12);
+  padding: 0.75rem 1rem; margin: 1rem 0;
+  font-size: 0.92rem; color: #dbeafe;
+}
+.warn {
+  border: 1px solid #92400e; border-radius: 8px;
+  background: rgba(245, 158, 11, 0.10);
+  padding: 0.75rem 1rem; margin: 1rem 0;
+  font-size: 0.92rem; color: #fde68a;
+}
+
+/* === CODE MAP (kabely-vodice.html) === */
+.codemap {
+  display: flex; flex-wrap: wrap; gap: 0.45rem;
+  margin: 0.5rem 0 0.75rem;
+}
+.codemap span {
+  background: rgba(255, 255, 255, 0.05); border: 1px solid #303a5c;
+  border-radius: 5px; padding: 0.22rem 0.6rem;
+  font-size: 0.88rem; color: #e5e7eb;
+}
+.codemap b { color: #c7d2fe; }
+
+/* === QUIZ — collapsible Q&A === */
+.quiz {
+  margin: 1.75rem 0 0;
+  border-top: 1px solid #2a3354;
+  padding-top: 0.25rem;
+}
+.quiz > h2 { border-top: none; padding-top: 0; }
+.quiz details {
+  border: 1px solid #303a5c; border-radius: 6px;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+.quiz details[open] {
+  background: rgba(99, 102, 241, 0.07);
+  border-color: #3730a5;
+}
+.quiz summary {
+  padding: 0.65rem 0.85rem;
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 0.75rem;
+  color: #e5e7eb; font-size: 0.95rem;
+  user-select: none;
+}
+.quiz summary::-webkit-details-marker { display: none; }
+.quiz summary::before {
+  content: "▶"; font-size: 0.7rem; color: #6366f1;
+  flex-shrink: 0; margin-right: 0.35rem;
+  position: relative; top: -0.05em;
+}
+.quiz details[open] summary::before { content: "▼"; }
+.quiz summary .hint {
+  font-size: 0.78rem; color: #64748b;
+  font-style: italic; flex-shrink: 0; white-space: nowrap;
+}
+.quiz details[open] summary .hint { display: none; }
+.quiz .ans {
+  padding: 0.6rem 0.85rem;
+  border-top: 1px solid #303a5c;
+}
+.quiz .ans p { margin: 0.3rem 0; color: #cbd5e1; font-size: 0.92rem; line-height: 1.6; }
+
+/* === PAGER prev/next === */
+.pager {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 2rem 0 0.6rem; gap: 0.5rem; flex-wrap: wrap;
+}
+.pager a {
+  color: #c7d2fe; text-decoration: none;
+  background: rgba(20, 25, 45, 0.6); border: 1px solid #2a3354;
+  padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.9rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.pager a:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: #4f46e5; color: #e0e7ff; text-decoration: none;
+}
+
+/* === BACK LINK === */
+.backlink {
+  display: inline-block; font-size: 0.88rem;
+  color: #94a3b8; text-decoration: none;
+  margin: 0.3rem 0 1.5rem;
+}
+.backlink:hover { color: #c7d2fe; text-decoration: underline; }
+
+/* === FIGURE / FIGCAPTION === */
+figure { margin: 1rem 0 1.25rem; }
+figure svg {
+  display: block; max-width: 100%;
+  border: 1px solid #2a3354; border-radius: 6px;
+}
+figcaption { font-size: 0.82rem; color: #94a3b8; margin-top: 0.4rem; }
+
+/* === INDEX HUB — chapter grid === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.9rem; margin-top: 1rem;
+}
+.grid .card {
+  display: block; padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none; color: #e5e7eb;
+  box-shadow: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.grid .card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: #4f46e5;
+}
+.grid .card .num {
+  display: inline-block; font-size: 0.78rem; font-weight: 700;
+  color: #a5b4fc; background: rgba(99, 102, 241, 0.18);
+  border-radius: 5px; padding: 0.1rem 0.5rem; margin-bottom: 0.5rem;
+}
+.grid .card h2 {
+  font-size: 1.05rem; font-weight: 700; line-height: 1.25;
+  color: #f1f5f9; margin: 0.1rem 0 0.35rem;
+  border-top: none; padding-top: 0;
+}
+.grid .card p { margin: 0; font-size: 0.88rem; color: #94a3b8; line-height: 1.45; }
+
+/* === FOOTER (bare <footer> in temata pages) === */
+footer {
+  margin: 2.5rem 0 1rem; padding: 1rem 0.5rem;
+  border-top: 1px solid #2a3354;
+  color: #94a3b8; font-size: 0.85rem;
+}
+footer a { color: #c7d2fe; text-decoration: none; }
+footer a:hover { color: #e0e7ff; text-decoration: underline; }

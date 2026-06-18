@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silové kabely a vodiče | Silnoproudé rozvody</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<link rel="stylesheet" href="styles.css">
+<script src="/assets/nav.js" defer></script>
+</head>
+<body>
+<div id="refnav" class="refnav"></div>
+<div class="wrap">
+  <nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Silové kabely a vodiče</nav>
+
+  <h1>3. Silové kabely, vodiče, šňůry a sdělovací vodiče</h1>
+
+  <p class="lead">Silové kabely tvoří páteř každého rozvodu. Tato kapitola shrnuje, jak se kabely dělí, jak se podle ČSN čtou jejich písmenné značky a jaké jsou základní parametry nejběžnějších nízkonapěťových kabelů.</p>
+
+  <h2>3.1 Rozdělení kabelů</h2>
+  <table>
+    <thead><tr><th>Hledisko</th><th>Varianty</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tvar jádra</strong></td><td>kruhový drát (kP), kruhové lano (kb), sektorové lano (SL), sektorový drát (S)</td></tr>
+      <tr><td><strong>Materiál jádra</strong></td><td>hliník, měď</td></tr>
+      <tr><td><strong>Počet žil</strong></td><td>jedno-, dvou-, tří-, čtyř- a vícežilové</td></tr>
+      <tr><td><strong>Provozní napětí</strong></td><td>nn do 750 V · vn 3, 6, 10, 22, 35 kV · vvn 110, 220 kV</td></tr>
+    </tbody>
+    <caption>Tab. 3.1 — Základní dělení silových kabelů.</caption>
+  </table>
+  <p><strong>Normalizované průřezy (mm²):</strong> 1,5 · 2,5 · 4 · 6 · 10 · 16 · 25 · 35 · 50 · 70 · 95 · 120 · 150 · 185 · 240.</p>
+
+  <h2>3.2 Značení kabelů dle ČSN</h2>
+  <p>Písmena ve značce kabelu se čtou v pořadí podle pozice a popisují konstrukci od jádra k vnějším obalům:</p>
+
+  <h3>1. písmeno — materiál jádra</h3>
+  <div class="codemap">
+    <span><b>A</b> = hliník</span><span><b>C</b> = měď</span>
+  </div>
+
+  <h3>2. písmeno — materiál izolace</h3>
+  <div class="codemap">
+    <span><b>Y</b> = PVC (měkčený)</span><span><b>G</b> = guma</span><span><b>E</b> = polyetylén</span><span><b>XE</b> = zesítěný PE</span><span><b>KX</b> = skleněná izolace</span>
+  </div>
+
+  <h3>3. písmeno — druh kabelu</h3>
+  <div class="codemap"><span><b>K</b> = silový kabel</span></div>
+
+  <h3>4. písmeno — materiál pláště</h3>
+  <div class="codemap">
+    <span><b>A</b> = hliník</span><span><b>Q</b> = slitina olova</span><span><b>C</b> = měděné stínění</span><span><b>Y</b> = PVC</span><span><b>U</b> = polychloroprénový kaučuk</span>
+  </div>
+  <p style="font-size:.92rem;color:var(--muted)">U kabelů se samostatně opláštěnými žilami je před písmenem pláště uvedeno <strong>T</strong> (tříplášťový).</p>
+
+  <h3>Další písmena — obaly nad pláštěm</h3>
+  <div class="codemap">
+    <span><b>J</b> = jednoduchá protikorozní ochrana</span><span><b>B</b> = zesílená (navíjená)</span><span><b>Y</b> = bezešvá PVC</span><span><b>P</b> = pancéř z pásků</span><span><b>D</b> = pancéř z drátů</span><span><b>z</b> = závěsný kabel</span>
+  </div>
+
+  <div class="note">
+    <strong>Příklad:</strong> <code>22-AXEKCY 240/25</code> →
+    22 kV jmenovité napětí · <b>A</b> hliníkové jádro · <b>XE</b> zesítěný PE · <b>K</b> kabel · <b>C</b> měděné stínění · <b>Y</b> PVC plášť · průřez vodiče 240 mm² / průřez stínění 25 mm².
+  </div>
+
+  <h2>3.3 Kabely nn do 750 V (celoplastové)</h2>
+  <p>Z celoplastových kabelů se zhotovuje většina nn rozvodů v distribuční soustavě. Nejběžnější typy:</p>
+  <table>
+    <thead><tr><th>Typ</th><th>Charakteristika a použití</th></tr></thead>
+    <tbody>
+      <tr><td><code>AYKY</code></td><td>PVC izolace i plášť, prakticky univerzální použití.</td></tr>
+      <tr><td><code>AYKY&nbsp;m</code></td><td>Mrazuvzdorná verze – lze ukládat do −5 °C (běžné typy jen do +4 °C).</td></tr>
+      <tr><td><code>AYKY&nbsp;D</code></td><td>Pancéř z ocelových drátů; do rour, kanálů a šachet, <strong>ne do země</strong>.</td></tr>
+      <tr><td><code>AYKYDY</code></td><td>Jako AYKYD + PVC obal; <strong>lze do země</strong>, do svahů a pohyblivé půdy.</td></tr>
+      <tr><td><code>AYKFY</code></td><td>Stínění z hliníkových drátů; omezuje rušivé elektromagnetické působení.</td></tr>
+      <tr><td><code>AYKYz</code></td><td>Závěsný kabel s ocelovým lanem.</td></tr>
+      <tr><td><code>CYKY</code></td><td>Obdoba s měděným jádrem.</td></tr>
+    </tbody>
+    <caption>Tab. 3.2 — Typy celoplastových nn kabelů.</caption>
+  </table>
+
+  <h3>Nejmenší dovolený poloměr ohybu</h3>
+  <table>
+    <thead><tr><th>Průměr kabelu (d)</th><th>Nejmenší poloměr ohybu</th></tr></thead>
+    <tbody>
+      <tr><td>do 20 mm</td><td>6 × d</td></tr>
+      <tr><td>do 40 mm</td><td>12 × d</td></tr>
+      <tr><td>nad 40 mm</td><td>15 × d</td></tr>
+    </tbody>
+    <caption>Tab. 3.3 — Dovolené poloměry ohybů celoplastových kabelů.</caption>
+  </table>
+
+  <h2>3.4 Proudová zatížitelnost (příklad NAYY)</h2>
+  <table>
+    <thead><tr><th>Počet žil × průřez (mm²)</th><th>V zemi (A)</th><th>Na vzduchu (A)</th></tr></thead>
+    <tbody>
+      <tr><td>4 × 16 RE</td><td>81</td><td>61</td></tr>
+      <tr><td>4 × 25 RE</td><td>102</td><td>82</td></tr>
+      <tr><td>4 × 50 SM</td><td>144</td><td>119</td></tr>
+      <tr><td>4 × 95 SM</td><td>215</td><td>188</td></tr>
+      <tr><td>4 × 150 SM</td><td>275</td><td>246</td></tr>
+      <tr><td>4 × 240 SM</td><td>364</td><td>338</td></tr>
+    </tbody>
+    <caption>Tab. 3.4 — Proudová zatížitelnost kabelu NAYY (0,6/1 kV) dle VDE.</caption>
+  </table>
+  <div class="note">Zatížitelnost <strong>v zemi je vyšší než na vzduchu</strong> – půda lépe odvádí teplo. Hodnoty se dále upravují korekčními činiteli (teplota, seskupení, způsob uložení).</div>
+
+  <h2>3.5 Barevné značení žil</h2>
+  <p>Barevné značení izolace žil prošlo vývojem; staré značení má dnes jen informativní charakter jako pomůcka pro převod. Aktuální (harmonizované) barvy:</p>
+  <table>
+    <thead><tr><th>Vodič</th><th>Barva izolace</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ochranný PE</strong></td><td>zeleno-žlutá (kombinace, nezaměnitelná)</td></tr>
+      <tr><td><strong>Střední / nulový N</strong></td><td>modrá (světle modrá)</td></tr>
+      <tr><td><strong>Fáze L1 / L2 / L3</strong></td><td>hnědá, černá, šedá</td></tr>
+    </tbody>
+    <caption>Tab. 3.5 — Aktuální barevné značení žil.</caption>
+  </table>
+  <div class="warn">Zeleno-žlutá kombinace je <strong>vyhrazena výhradně pro ochranný vodič PE</strong> a nesmí být použita pro žádný jiný účel.</div>
+
+  <h2>3.6 Vodiče a harmonizované značení</h2>
+  <p>Na vodiče jsou kladeny požadavky na elektrickou vodivost, mechanickou pevnost, tvárnost a hospodárnost. Dělí se podle izolace (holé, izolované, kabely), materiálu (Cu, Al, AlFe, FeZn) a tvaru (drát, lano, pásek).</p>
+  <p>Evropské <strong>harmonizované značení</strong> nahrazuje původní česká označení (např. CY → H07V-U). Význam pozic:</p>
+  <div class="codemap">
+    <span><b>1. písmeno</b> typ normy — H (harmonizovaný) / A (národní)</span>
+    <span><b>2.–3. číslice</b> napětí — 03: 300/300 V · 05: 300/500 V · 07: 300/750 V</span>
+    <span><b>4. písmeno</b> izolace — V: PVC · R: kaučuk · S: silikon</span>
+    <span><b>5. písmeno</b> plášť — V/R/S/N…</span>
+    <span><b>za pomlčkou</b> jádro — U: jeden drát · R: vícedrátový · K: pevné uložení · F: pohyblivé uložení</span>
+  </div>
+  <div class="note"><strong>Příklad:</strong> <code>H07V-U</code> = harmonizovaný · 300/750 V · PVC izolace · jeden plný drát (typický instalační vodič „pod omítku"). Sdělovací kabely se značí např. <code>SYKY</code> (vnitřní nestíněný).</div>
+
+  <div class="quiz">
+    <h2>Opakovací otázky</h2>
+    <details><summary>Co udává první a druhé písmeno ve značce kabelu?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p><strong>1. písmeno – materiál jádra</strong> (A = hliník, C = měď). <strong>2. písmeno – materiál izolace</strong> (Y = PVC, G = guma, E = polyetylén, XE = zesítěný PE).</p></div>
+    </details>
+    <details><summary>Který celoplastový kabel lze uložit přímo do země?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p><strong>AYKYDY</strong> – má oproti AYKYD navíc vnější PVC obal, takže ho lze uložit do země i do svahovitých a pohyblivých terénů. Naproti tomu AYKYD (jen pancéř z drátů) se do země nepoužívá.</p></div>
+    </details>
+    <details><summary>Proč je proudová zatížitelnost kabelu v zemi vyšší než na vzduchu?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>Půda lépe <strong>odvádí teplo</strong> z kabelu než klidný vzduch, takže se kabel při stejném proudu méně zahřívá. Proto smí být uložen na vyšší proud. Hodnoty se dále upravují korekčními činiteli (teplota okolí, seskupení kabelů, způsob uložení).</p></div>
+    </details>
+    <details><summary>Jakou barvu má ochranný vodič PE a smí se použít i pro jiný účel?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>PE má <strong>zeleno-žlutou</strong> kombinaci barev. Tato kombinace je vyhrazena výhradně pro ochranný vodič a nesmí se použít pro žádný jiný účel.</p></div>
+    </details>
+  </div>
+
+  <div class="pager">
+    <a class="prev" href="znacky-schemata.html">← 2. Značky pro schémata</a>
+    <a class="next" href="spinace-zasuvky.html">4. Přepínače, vypínače, zásuvky →</a>
+  </div>
+  <a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+
+<footer>
+  Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění příslušných ČSN.
+</footer>
+</body>
+</html>

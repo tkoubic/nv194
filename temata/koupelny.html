@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koupelny a prostory s vanou | Silnoproudé rozvody</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<link rel="stylesheet" href="styles.css">
+<script src="/assets/nav.js" defer></script>
+</head>
+<body>
+<div id="refnav" class="refnav"></div>
+<div class="wrap">
+  <nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Koupelny a prostory s vanou</nav>
+
+  <h1>10. Elektrická instalace v koupelnách a prostorách s vanou</h1>
+
+  <p class="lead">Koupelny a prostory se sprchou patří mezi prostory se zvýšeným rizikem úrazu elektrickým proudem – kombinuje se zde voda, mokrá pokožka (nízký odpor těla) a uzemněné kovové předměty. Proto norma <strong>ČSN 33 2000-7-701 ed. 2</strong> tyto prostory rozděluje na <strong>zóny 0, 1 a 2</strong> a pro každou stanovuje, jaká zařízení a jaké napětí jsou přípustné.</p>
+
+  <h2>10.1 Rozdělení na zóny</h2>
+  <p>Prostory s vanou nebo sprchou se rozměrově dělí do zón vymezených normou. V reálném prostoru je pouhým okem rozeznatelná jen <strong>zóna 0</strong> a částečně zóna 1 – výšku zóny 1 ani rozsah zóny 2 nelze určit bez měřidla. U prostor se sprchovou vaničkou jsou zóny totožné jako u prostor s vanou; sprcha bez vaničky se posuzuje odlišně.</p>
+
+  <h3>Zóna 0</h3>
+  <ul>
+    <li>vnitřní prostor koupací nebo sprchové vany,</li>
+    <li>u sprch bez vaničky je vymezena podlahou a rovinou ve výšce <strong>0,10 m</strong> nad podlahou, se stejným vodorovným rozsahem jako zóna 1,</li>
+    <li>zóna 0 nesmí být nahrazena zónou 1 ani 2.</li>
+  </ul>
+
+  <h3>Zóna 1</h3>
+  <ul>
+    <li>sahá od povrchu podlahy k rovině nejvýše upevněné sprchové hlavice; pokud je hlavice níže, končí zóna ve výšce <strong>2,25 m</strong> nad podlahou,</li>
+    <li>svislá plocha nad vanou nebo sprchovou vanou,</li>
+    <li>u sprch bez vaničky vymezena vzdáleností <strong>1,20 m</strong> od nesnímatelné hlavice upevněné na zdi či stropě,</li>
+    <li>prostor pod vanou je vždy zónou 1.</li>
+  </ul>
+
+  <h3>Zóna 2</h3>
+  <ul>
+    <li>výškově shodná se zónou 1 (do roviny hlavice, jinak 2,25 m),</li>
+    <li>svislá plocha vně zóny 1 v šířce <strong>0,60 m</strong>,</li>
+    <li>prostor se sprchou bez vaničky <strong>nemá zónu 2</strong> – místo toho je zóna 1 vodorovně zvětšena na 1,20 m.</li>
+  </ul>
+
+  <figure>
+    <img src="assets/koupelna1.jpg" alt="Zóny 0, 1 a 2 v prostoru s vanou – boční pohled" class="question-img">
+    <figcaption>Obr. 10.1 — Zóny v prostoru s vanou. zdroj: elektrika.cz</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/koupelna2.jpg" alt="Zóny 0, 1 a 2 v prostoru s vanou – půdorys" class="question-img">
+    <figcaption>Obr. 10.2 — Zóny v prostoru se sprchou. zdroj: elektrika.cz </figcaption>
+  </figure>
+
+  <h2>10.2 Požadavky na ochranu</h2>
+  <p>V místnosti s vanou nebo sprchou musí být <strong>všechny obvody chráněny proudovým chráničem (RCD) s vybavovacím proudem do 30 mA</strong>. Výjimkou jsou obvody chráněné <strong>SELV / PELV</strong> a obvody s ochranou elektrickým oddělením.</p>
+  <p>Doplňující ochranné pospojování se provádí jen tehdy, je-li vana <strong>kovová</strong>. Plastové potrubí vodovodu i plastové topení se nepospojují; měděné trubky topení se pospojují přímo u zdroje tepla.</p>
+
+  <div class="note">
+    <strong>Souvislost se SELV/PELV:</strong> Zdroj bezpečného malého napětí (transformátor) musí být umístěn <strong>mimo zóny 0, 1 a 2</strong> – tedy mimo bezprostřední okolí vany či sprchy.
+  </div>
+
+  <h2>10.3 Co smí být v které zóně</h2>
+  <table>
+    <thead>
+      <tr><th>Zóna</th><th>Přípustné napětí / zařízení</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Zóna 0</strong></td>
+        <td>Pouze pevně připojené zařízení určené výrobcem pro zónu 0, chráněné <strong>SELV do 12 V AC / 30 V DC</strong>. Spínače a zásuvky 230/400 V <strong>nepřípustné</strong>.</td>
+      </tr>
+      <tr>
+        <td><strong>Zóna 1</strong></td>
+        <td>Jen upevněná zařízení s pevným přívodem, výrobcem určená pro tuto zónu (čerpadla a kompresory vířivých van, ventilátory, sušiče ručníků, svítidla, ohřívače vody). Lze umístit odbočovací krabice pro zařízení v zónách 0 a 1 a zásuvky <strong>SELV/PELV (do 25 V AC / 60 V DC)</strong>.</td>
+      </tr>
+      <tr>
+        <td><strong>Zóna 2</strong></td>
+        <td>Příslušenství kromě zásuvek a vypínačů 230/400 V. Zásuvky napájené <strong>SELV/PELV</strong> jsou povoleny.</td>
+      </tr>
+      <tr>
+        <td><strong>Mimo zóny</strong></td>
+        <td>Spínače a zásuvky 230/400 V se umisťují mimo zóny 0–2; minimální výška spínacích přístrojů a zásuvek je <strong>0,20 m</strong>.</td>
+      </tr>
+    </tbody>
+    <caption>Tab. 10.1 — Přípustná zařízení a napětí podle zón.</caption>
+  </table>
+
+  <p>Pro <strong>podlahové vytápění</strong> lze použít pouze topné kabely nebo rohože s kovovým vodivým opletem (či páskem) připojeným k ochrannému vodiči. Ochranu elektrickým oddělením obvodů zde použít nelze.</p>
+
+  <h2>10.4 Umývací prostor</h2>
+  <p>Provedení instalace v umývacím prostoru řeší <strong>ČSN 33 2130 ed. 2</strong>. Spínače a zásuvky smí být jen vně umývacího prostoru. Jsou-li ve výšce alespoň <strong>1,2 m</strong> nad podlahou, mohou být na jeho hranici; níže musí být nejbližší okraj <strong>0,2 m</strong> od hranice prostoru.</p>
+  <p>Svítidlo musí mít spodní okraj minimálně ve výšce <strong>1,8 m</strong>. Je-li níže než 2,5 m, musí být všechny jeho části z trvanlivého izolantu; níže než 1,8 m musí být chráněno proti mechanickému poškození a mít krytí <strong>IP X1</strong>. Spodní okraj svítidla nesmí být níže než 0,4 m nad dřezem/umyvadlem. Zásuvky ve školních učebnách se nesmí umisťovat blíže než <strong>1,5 m</strong> od umývacího prostoru.</p>
+
+  <div class="quiz">
+    <h2>Opakovací otázky</h2>
+    <details><summary>Kolik je definovaných zón v prostoru s vanou?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>Tři zóny – <strong>zóna 0, 1 a 2</strong>. (Prostor se sprchou bez vaničky zónu 2 nemá – místo ní je zóna 1 vodorovně zvětšena na 1,20 m.)</p></div>
+    </details>
+    <details><summary>Kde může být umístěn elektrický zásobník teplé vody?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>V <strong>zóně 1</strong> – jako upevněné zařízení s pevným elektrickým přívodem, výrobcem určené pro tuto zónu. Patří sem ohřívače vody, čerpadla, ventilátory či svítidla.</p></div>
+    </details>
+    <details><summary>Jaké elektrické zařízení může být umístěno v zóně 0?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>Pouze zařízení s pevným elektrickým připojením, výrobcem určené přímo pro zónu 0 a chráněné <strong>SELV do 12 V AC / 30 V DC</strong>. Spínače a zásuvky 230/400 V jsou v zóně 0 nepřípustné.</p></div>
+    </details>
+  </div>
+
+  <div class="pager">
+    <a class="prev" href="prepetove-ochrany.html">← 9. Přepěťové ochrany</a>
+    <a class="next" href="hromosvody.html">11. Hromosvody a zemniče →</a>
+  </div>
+  <a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+
+<footer>
+  Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění ČSN 33 2000-7-701 a ČSN 33 2130.
+</footer>
+</body>
+</html>

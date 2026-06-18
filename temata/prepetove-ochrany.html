@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Přepěťové ochrany | Silnoproudé rozvody</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Přepěťové ochrany</nav>
+
+  <h1>9. Přepěťové ochrany</h1>
+
+  <p class="lead">Rostoucí počet a citlivost elektronických zařízení zvyšuje riziko jejich rušení i zničení vlivem přepětí. Úkolem přepěťových ochran je chránit instalaci, provozní prostředky i koncová zařízení před ničivými účinky přechodných přepětí – zejména od úderů blesku a spínacích pochodů.</p>
+
+  <h2>9.1 Druhy přepětí</h2>
+  <p>Podle vzniku rozlišujeme:</p>
+  <ul>
+    <li><strong>Atmosférické přepětí</strong> – frekvence řádově jednotek MHz, vzniká přímým či nepřímým úderem blesku.</li>
+    <li><strong>Spínací přepětí</strong> – frekvence 100 kHz až 1 MHz, vzniká spínacími operacemi v obvodu.</li>
+    <li><strong>Průmyslové přepětí</strong> – frekvence 50 Hz a relativně dlouhé trvání.</li>
+  </ul>
+  <h3>Podle způsobu šíření</h3>
+  <ul>
+    <li><strong>Podélné přepětí</strong> – mezi pracovním vodičem a zemí (L–PE, N–PE).</li>
+    <li><strong>Příčné přepětí</strong> – mezi pracovními vodiči (L–N).</li>
+  </ul>
+  <div class="note">U sítí <strong>TN-S a TT</strong> je nutné počítat s ochranou proti <strong>oběma</strong> druhům přepětí – podélnému i příčnému.</div>
+
+  <h2>9.2 Údery blesku</h2>
+  <p>Atmosférické přepětí vzniká při bouřkách, kdy se z teplého stoupajícího vzduchu tvoří mrak typu <strong>kumulonimbus</strong>. Rozdíl potenciálů mezi základnou a vrcholem mraku dosahuje až <strong>100 milionů voltů</strong>. K výbojům dochází uvnitř mraku nebo mezi mrakem a zemí.</p>
+  <h3>Přímý úder</h3>
+  <p>Při přímém úderu do budovy se během zlomku sekundy zvýší potenciál všech uzemněných částí instalace. Úder do nadzemního vedení indukuje napěťovou vlnu, která se šíří do budov i několik kilometrů daleko.</p>
+  <h3>Nepřímý úder</h3>
+  <p>Úder do země, stromu apod. vytvoří elektromagnetické pole, jež v okolních vodičích indukuje napěťovou vlnu. Při úderu do jímací tyče teče část bleskového proudu (až ~50 %) přes uzemňovací přívody do vnitřní instalace – svodiče proto musí svést velké vrcholové proudy a propustit jen malou část energie.</p>
+
+  <h2>9.3 Vnější a vnitřní ochrana</h2>
+  <ul>
+    <li><strong>Vnější ochrana před bleskem</strong> – hromosvod a pospojování všech kovových částí a vedení v budově se zemnicí soustavou.</li>
+    <li><strong>Vnitřní ochrana před bleskem</strong> – svodiče přepětí zapojené mezi L–PE, N–PE, L–N.</li>
+  </ul>
+
+  <h2>9.4 Prvky svodičů: jiskřiště a varistor</h2>
+  <p><strong>Jiskřiště a omezovače přepětí</strong> mají komoru se dvěma či více elektrodami; vzdálenost elektrod a prostředí mezi nimi určují zapalovací napětí, při kterém přeskočí výboj a vyrovná potenciály. V klidu mají velký vnitřní odpor.</p>
+  <p><strong>Varistor</strong> je napěťově závislý rezistor – pro malá napětí má velký odpor, který se s rostoucím napětím samovolně zmenšuje.</p>
+
+  <table>
+    <thead><tr><th>Prvek</th><th>Výhody</th><th>Nevýhody</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Jiskřiště</strong></td>
+        <td>Vysoká schopnost svádět impulzní proudy; vysoká odolnost proti dočasným přepětím.</td>
+        <td>Vysoké zapalovací napětí; následný proud.</td>
+      </tr>
+      <tr>
+        <td><strong>Varistor</strong></td>
+        <td>Nízká ochranná úroveň; žádný následný proud.</td>
+        <td>Omezená schopnost svádět impulzní proudy; žádná odolnost proti dočasným přepětím.</td>
+      </tr>
+    </tbody>
+    <caption>Tab. 9.1 — Porovnání jiskřiště a varistoru.</caption>
+  </table>
+
+  <h2>9.5 Stupně ochrany (svodiče 1., 2. a 3. stupně)</h2>
+  <table>
+    <thead><tr><th>Stupeň</th><th>Umístění</th><th>Prvek / úloha</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. stupeň</strong></td><td>Hlavní rozváděč</td><td>Jiskřiště – svádí dílčí bleskové proudy při úderech blesku.</td></tr>
+      <tr><td><strong>2. stupeň</strong></td><td>Podružné rozváděče</td><td>Varistorový omezovač – svádí přepětí od blízkých/vzdálených úderů a spínacích pochodů.</td></tr>
+      <tr><td><strong>3. stupeň</strong></td><td>U zásuvky / spotřebiče</td><td>Varistorový omezovač – chrání jednotlivé spotřebiče nebo skupiny spotřebičů.</td></tr>
+    </tbody>
+    <caption>Tab. 9.2 — Stupně přepěťové ochrany.</caption>
+  </table>
+  <div class="note">Správnou koordinaci 1. a 2. stupně zajišťuje impedance vedení mezi nimi o délce <strong>cca 10 m</strong>. Při kratší vzdálenosti se vkládá oddělovací tlumivka dimenzovaná podle předjištění.</div>
+
+  <h2>9.6 Princip svodiče přepětí</h2>
+  <p>Moderní svodiče kombinují varistor a plynové jiskřiště, čímž dosahují velmi krátké reakční doby (~25 ns). Při pracovním napětí mají velký odpor; po překročení maximálního pracovního napětí odpor prudce klesne a svodič po dobu pulzu vytvoří „řízený zkrat" – galvanické pospojování pracovního vodiče s ekvipotenciální přípojnicí – a zabrání průniku přepětí ke spotřebiči.</p>
+  <h3>Základní parametry</h3>
+  <ul>
+    <li><strong>U<sub>c</sub></strong> – maximální trvalé pracovní napětí,</li>
+    <li><strong>I<sub>max</sub></strong> – mezní impulzní proud svodiče,</li>
+    <li><strong>U<sub>p</sub></strong> – ochranná úroveň (zbytkové napětí na svorkách chráněného zařízení při průchodu jmenovitého impulzního proudu).</li>
+  </ul>
+
+  <h2>9.7 Svodiče a proudové chrániče</h2>
+  <p>Obecně je výhodnější svodič přepětí <strong>předřadit</strong> a proudový chránič přiřadit za něj. Nedovolí-li to podmínky, je nutné zajistit, aby svodový proud nevybavil chránič. Vhodné řešení: svodič kombinovat se selektivním (zpožděným) chráničem <strong>300–500 mA</strong> pro ochranu proti požáru a doplnit chránič <strong>30 mA</strong> pro ochranu osob.</p>
+
+  <h2>9.8 Svodiče v datových a telekomunikačních sítích</h2>
+  <p>Svodiče typu PRC jsou určeny pro sériovou a paralelní ochranu přístrojů na <strong>analogových</strong> telekomunikačních sítích; svodiče PRI pro ochranu zařízení na <strong>digitálních</strong> telekomunikačních, počítačových a datových sítích. Svedením impulzního proudu do země sníží amplitudu přepětí na úroveň bezpečnou pro instalaci.</p>
+
+  <div class="quiz">
+    <h2>Opakovací otázky</h2>
+    <details><summary>Vyjmenujte druhy přepětí.<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>Podle vzniku: <strong>atmosférické</strong> (úder blesku, ~MHz), <strong>spínací</strong> (spínací operace, 100 kHz–1 MHz) a <strong>průmyslové</strong> (50 Hz, dlouhé trvání). Podle šíření: <strong>podélné</strong> (vodič–zem) a <strong>příčné</strong> (mezi pracovními vodiči).</p></div>
+    </details>
+    <details><summary>Popište princip varistoru.<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p>Varistor je <strong>napěťově závislý rezistor</strong>. Při malém (pracovním) napětí má velký odpor a obvodem prakticky neprotéká proud. Při překročení napětí jeho odpor prudce klesne, svede přepěťový impulz do země a po odeznění se vrátí do stavu s vysokým odporem. Nemá následný proud.</p></div>
+    </details>
+    <details><summary>Kde se instaluje svodič 1., 2. a 3. stupně?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+      <div class="ans"><p><strong>1. stupeň</strong> (jiskřiště) – v hlavním rozváděči. <strong>2. stupeň</strong> (varistor) – v podružných rozváděčích. <strong>3. stupeň</strong> (varistor) – u zásuvky/spotřebiče. Koordinaci 1. a 2. stupně zajišťuje vedení délky cca 10 m nebo oddělovací tlumivka.</p></div>
+    </details>
+  </div>
+
+  <div class="pager">
+    <a class="prev" href="kladeni-vedeni.html">← 8. Kladení vedení</a>
+    <a class="next" href="koupelny.html">10. Koupelny a prostory s vanou →</a>
+  </div>
+  <a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+
+<footer>
+  Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění příslušných ČSN.
+</footer>
+</body>
+</html>

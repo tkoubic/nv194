@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detektory infračerveného záření | Silnoproudé rozvody</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Detektory IR záření</nav>
+
+<h1>5. Detektory infračerveného záření</h1>
+
+<p class="lead">Infračervené záření je neviditelné teplo, které vyzařuje každé těleso. Této vlastnosti využívají pasivní infračervená čidla (PIR) – nejrozšířenější detektory pohybu v zabezpečovacích systémech. Kapitola shrnuje, co je IR záření, jak ho dělíme a jak se PIR čidla správně instalují.</p>
+
+<h2>5.1 Infračervené záření</h2>
+<p><strong>Infračervené záření (IR</strong>, z angl. <em>infrared</em>, „pod červenou") je elektromagnetické záření s vlnovou délkou větší než viditelné světlo a menší než mikrovlny – přibližně <strong>760 nm až 1 mm</strong>. Dělí se na pásma:</p>
+<table>
+  <thead><tr><th>Pásmo</th><th>Označení</th><th>Vlnová délka</th></tr></thead>
+  <tbody>
+    <tr><td>Blízké (near)</td><td>NIR / IR-A</td><td>0,76–1,4 µm</td></tr>
+    <tr><td>Krátkovlnné (short wave)</td><td>SWIR / IR-B</td><td>1,4–3 µm</td></tr>
+    <tr><td>Středněvlnné (medium wave)</td><td>MWIR / IR-C</td><td>3–8 µm</td></tr>
+    <tr><td>Dlouhovlnné (long wave)</td><td>LWIR / IR-C</td><td>8–15 µm</td></tr>
+    <tr><td>Daleké (far)</td><td>FIR</td><td>15–1000 µm</td></tr>
+  </tbody>
+  <caption>Tab. 5.1 — Pásma infračerveného záření (dělení dle DIN).</caption>
+</table>
+
+<h2>5.2 Tepelné záření</h2>
+<p>IR záření bývá nazýváno „tepelným", ale povrch tělesa zahřívá jakékoli elektromagnetické záření. IR způsobuje přibližně <strong>50 % zahřívání zemského povrchu</strong>. Tělesa při pokojové teplotě vyzařují nejvíce energie na vlnové délce <strong>8–12 µm</strong> – právě v tomto pásmu pracují PIR čidla.</p>
+
+<h2>5.3 Aplikace</h2>
+<ul>
+  <li><strong>Komunikace na krátkou vzdálenost</strong> – standard IrDA (dálkové ovladače, dříve mobilní telefony); zdrojem jsou infradiody (LED).</li>
+  <li><strong>Optická vlákna</strong> – telekomunikační pásma O, E, S, C, L, U (1260–1675 nm).</li>
+  <li><strong>Spektroskopie</strong> – studium složení sloučenin podle pohlcování IR různými molekulárními vazbami (např. CO₂ silně pohlcuje 4,2 µm).</li>
+  <li><strong>Skleníkový efekt</strong> – atmosféra pohlcuje a zpětně vyzařuje zemské IR záření, čímž udržuje povrch o ~33 °C teplejší.</li>
+</ul>
+
+<h2>5.4 Pasivní infračervená čidla – PIR</h2>
+<p><strong>PIR</strong> (Passive InfraRed) jsou nejčastější detektory v elektrické zabezpečovací signalizaci. Zachycují <strong>pohyb těles s jinou teplotou, než má okolí</strong> – reagují na změny vyzařování v IR pásmu. Jsou <em>pasivní</em>, tedy samy nic nevyzařují, jen přijímají.</p>
+
+<h3>Použití a umístění</h3>
+<p>Těžištěm prostorové ochrany jsou centrální body budovy – schodiště, haly, spojovací chodby, komunikační uzly. Montáž je nenáročná. Prostorová ochrana však <strong>nikdy nenahradí ochranu plášťovou</strong>, protože plášťová detekuje vniknutí s minimální časovou prodlevou (hned na obvodu objektu).</p>
+
+<h3>Zásady instalace</h3>
+<ol>
+  <li>Čidlo umístit tak, aby pravděpodobný směr pohybu pachatele byl <strong>kolmý</strong> na promítnuté aktivní/neaktivní zóny (PIR je nejcitlivější na tangenciální pohyb).</li>
+  <li>Montáž na pevný podklad bez vibrací.</li>
+  <li>Více čidel v jednom prostoru se vzájemně neovlivňuje (nic nevyzařují) – pro úplné pokrytí se zóny mají překrývat.</li>
+  <li>V prostorech s <strong>podlahovým vytápěním</strong> se PIR nedají dobře použít.</li>
+  <li>Čidlo nesměrovat na okna.</li>
+</ol>
+
+<h3>Kritéria falešných poplachů</h3>
+<div class="warn">PIR čidlo nesmí být vystaveno: <strong>proudění vzduchu</strong> (ventilace, průvan), <strong>přímému/nepřímému světlu</strong> (slunce, reflektory), <strong>proměnným zdrojům tepla</strong> (topení, komíny) a <strong>spínaným IR zdrojům</strong> (žárovky).</div>
+
+<h3>Nastavení a údržba</h3>
+<p>Dosah se nastavuje výškou montáže a naklápěním čidla. Při údržbě se kontroluje, zda čidlo není zastíněno (změnou interiéru, záclonou, žaluzií) a zda dosah nesnížilo zaprášení <strong>Fresnelovy čočky</strong> nebo zrcadlové optiky.</p>
+
+<div class="quiz">
+  <h2>Opakovací otázky</h2>
+  <details><summary>Jaký je rozsah vlnových délek infračerveného záření?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Přibližně <strong>760 nm až 1 mm</strong> – tedy delší než viditelné světlo a kratší než mikrovlny. PIR čidla pracují v pásmu 8–12 µm, kde nejvíce vyzařují tělesa o pokojové teplotě.</p></div>
+  </details>
+  <details><summary>Proč PIR čidlo nelze spolehlivě použít v místnosti s podlahovým vytápěním?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>PIR detekuje pohyb těles teplejších/chladnějších než okolí. Vyhřátá podlaha má teplotu blízkou tělesné, takže se sníží teplotní kontrast mezi pohybujícím se člověkem a pozadím a čidlo pohyb spolehlivě nezachytí.</p></div>
+  </details>
+  <details><summary>Může prostorová ochrana nahradit plášťovou?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Ne. Plášťová ochrana detekuje vniknutí na obvodu objektu s minimální časovou prodlevou, kdežto prostorová zareaguje až když je pachatel uvnitř. Prostorová ochrana plášťovou doplňuje, nikoli nahrazuje.</p></div>
+  </details>
+</div>
+
+<div class="pager">
+  <a class="prev" href="spinace-zasuvky.html">← 4. Přepínače, vypínače, zásuvky</a>
+  <a class="next" href="rele-stykace.html">6. Relé a stykače →</a>
+</div>
+<a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+<footer>
+Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění příslušných ČSN.
+</footer>
+</body>
+</html>

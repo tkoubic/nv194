@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relé a stykače | Silnoproudé rozvody</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<link rel="stylesheet" href="styles.css">
+<script src="/assets/nav.js" defer></script>
+</head>
+<body>
+<div id="refnav" class="refnav"></div>
+<div class="wrap">
+<nav class="crumbs"><a href="index.html">← Silnoproudé rozvody</a> / Relé a stykače</nav>
+
+<h1>6. Relé a stykače</h1>
+
+<p class="lead">Relé a stykače jsou elektromagneticky ovládané spínače – malým ovládacím signálem spínají velké výkony. Liší se velikostí: relé spínají menší proudy řídicích a domovních obvodů, stykače velké silové obvody, zejména motory. Kapitola shrnuje jejich rozdělení, principy a typické použití.</p>
+
+<h2>6.1 Relé</h2>
+<p><strong>Relé</strong> jsou spínače ovládané elektromagneticky. Malým proudem v cívce se spínají a vypínají obvody podle požadované funkce – relé tak fungují jako jednoduché automaty.</p>
+
+<h3>Rozdělení relé</h3>
+<table>
+  <thead><tr><th>Hledisko</th><th>Druhy</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Podle proudu</strong></td><td>stejnosměrná, střídavá</td></tr>
+    <tr><td><strong>Podle funkce</strong></td><td>časová, multifunkční, tepelná nadproudová, přednostní, spínací, kontrolní, impulsní, kroková, paměťová, bezpečnostní, instalační</td></tr>
+    <tr><td><strong>Podle kontaktů</strong></td><td>spínací, rozpínací, přepínací</td></tr>
+  </tbody>
+  <caption>Tab. 6.1 — Rozdělení relé.</caption>
+</table>
+
+<h3>Příklady relé a jejich použití</h3>
+<table>
+  <thead><tr><th>Relé</th><th>Funkce a použití</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Multifunkční (SMR-T)</strong></td><td>Montuje se pod vypínače a do krabic; časové rozsahy se nastavují potenciometry. Funkce např. impulsní relé i se zpožděním.</td></tr>
+    <tr><td><strong>Přednostní</strong></td><td>V bytových instalacích blokuje méně důležité odběry (např. bojler), aby nedošlo k překročení proudu hlavního jističe.</td></tr>
+    <tr><td><strong>Schodišťový automat (SA10)</strong></td><td>Spíná světlo na nastavitelný čas (0,5–10 min); elektronická verze nahradila starší mechanické vzduchové relé.</td></tr>
+    <tr><td><strong>Multifunkční časové</strong></td><td>Časuje úseky např. u přepínání hvězda/trojúhelník (Y/D); umožňuje připojit desítky tlačítek.</td></tr>
+    <tr><td><strong>Tepelné nadproudové</strong></td><td>Chrání motory před přetížením; používá se v kombinaci se stykačem.</td></tr>
+    <tr><td><strong>Impulsní</strong></td><td>Spíná světlo z více míst (schodiště); vstupy ON, OFF a ON/OFF. Max. zatížení kontaktů 16 A.</td></tr>
+  </tbody>
+  <caption>Tab. 6.2 — Vybraná relé a jejich použití.</caption>
+</table>
+
+<h2>6.2 Stykače</h2>
+<p><strong>Stykače</strong> jsou dálkově ovládané spínače pro zapínání a vypínání silových obvodů. Skládají se z <strong>hlavních (silových) kontaktů</strong> a <strong>pomocných (ovládacích) kontaktů</strong> určených k blokování a signalizaci.</p>
+
+<h3>Rozdělení stykačů</h3>
+<ul>
+  <li><strong>Podle proudu:</strong> stejnosměrné, střídavé,</li>
+  <li><strong>Podle chlazení:</strong> vzduchové, olejové,</li>
+  <li><strong>Podle přídržné síly:</strong> elektromagnetické, vačkové, pneumatické (se stlačeným vzduchem).</li>
+</ul>
+
+<div class="warn"><strong>Stykač nevypíná zkratové proudy</strong> – proto má vždy předřazenou pojistku nebo jistič. Proti dlouhotrvajícímu přetížení (např. běh motoru „na dvě fáze") se ke stykači připojuje <strong>tepelné nadproudové relé</strong>.</div>
+<p>Stykače ovládané stlačeným vzduchem se používají tam, kde jsou potřeba velké spínací síly a rychlosti. Silové kontakty musí svou konstrukcí vydržet velké tepelné namáhání při spínání.</p>
+
+<div class="note"><strong>Relé vs. stykač:</strong> oba jsou elektromagnetické spínače. Relé spíná menší proudy (řídicí, domovní obvody, max. desítky A), stykač velké silové obvody (motory, topení) a má robustní silové kontakty s zhášecí komorou.</div>
+
+<div class="quiz">
+  <h2>Opakovací otázky</h2>
+  <details><summary>Jaký je rozdíl mezi relé a stykačem?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Oba jsou elektromagneticky ovládané spínače. Relé spínají menší proudy řídicích a domovních obvodů, stykače jsou určeny pro velké silové obvody (zejména motory) a mají robustní silové kontakty. Stykač navíc bývá doplněn tepelným relé a předřazeným jištěním.</p></div>
+  </details>
+  <details><summary>Proč musí mít stykač předřazenou pojistku nebo jistič?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Protože <strong>stykač sám nevypíná zkratové proudy</strong>. Při zkratu by se zničil, proto ochranu proti zkratu zajišťuje předřazená pojistka nebo jistič. Proti přetížení se navíc doplňuje tepelné nadproudové relé.</p></div>
+  </details>
+  <details><summary>K čemu slouží přednostní relé?<span class="hint">klikněte pro zobrazení odpovědi</span></summary>
+    <div class="ans"><p>Blokuje (dočasně odpojí) méně důležité odběry – například bojler – ve chvíli, kdy hrozí překročení jmenovitého proudu hlavního jističe. Tím zabrání vybavení hlavního jističe při souběhu velkých odběrů.</p></div>
+  </details>
+</div>
+
+<div class="pager">
+  <a class="prev" href="detektory-ir.html">← 5. Detektory IR záření</a>
+  <a class="next" href="hlidace-teploty.html">7. Hlídače teploty →</a>
+</div>
+<a class="backlink" href="index.html">← Zpět na přehled kapitol</a>
+</div>
+<footer>
+Studijní materiál zpracovaný z učebního textu <em>Silnoproudé rozvody</em> (SOŠE, COP Hluboká nad Vltavou, 2011). Hodnoty jsou orientační – před použitím v praxi ověřte aktuální znění příslušných ČSN.
+</footer>
+</body>
+</html>
